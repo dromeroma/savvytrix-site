@@ -8,7 +8,8 @@ export const CONTACT_WHATSAPP_URL = `${WHATSAPP_URL}?text=${encodeURIComponent('
 export const PROJECT_WHATSAPP_URL = `${WHATSAPP_URL}?text=${encodeURIComponent('Hola, tengo un proyecto en mente y quiero cotizar con Savvitrix Solutions')}`;
 
 // ── Savvy Ecosystem ─────────────────────────────────────────────────────────
-export const SAVVY_APP_URL = 'https://app.savvypos.com';
+export const SAVVYPOS_APP_URL = 'https://app.savvypos.com';
+export const SAVVYTRIX_APP_URL = 'https://app.savvytrix.com';
 export const SAVVY_SIGNUP_URL = 'https://app.savvypos.com/signup';
 
 // ── Social ──────────────────────────────────────────────────────────────────
