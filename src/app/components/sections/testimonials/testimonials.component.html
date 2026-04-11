@@ -1,0 +1,88 @@
+<app-section-wrapper extraClass="py-20 lg:py-28 bg-[var(--color-bg-alt)]">
+  <div class="text-center mb-14">
+    <p class="text-sm font-semibold uppercase tracking-widest text-[var(--color-accent)] mb-3">Lo dicen quienes lo usan</p>
+    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--color-text)] leading-tight text-balance">
+      Historias reales.<br>
+      <span class="text-[var(--color-accent)]">Resultados reales.</span>
+    </h2>
+    <p class="mt-4 text-[var(--color-text-muted)] max-w-xl mx-auto">
+      Empresas y emprendedores que confiaron en Savvitrix Solutions para resolver sus retos tecnológicos.
+    </p>
+  </div>
+
+  <!-- Desktop: grilla 3×2 -->
+  <div class="hidden md:grid grid-cols-3 gap-5 lg:gap-6">
+    @for (t of testimonials; track t.name) {
+      <div class="relative flex flex-col rounded-2xl border border-[var(--color-border)] bg-[var(--color-card-bg)] p-6 lg:p-7 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5">
+        <!-- Estrellas -->
+        <div class="flex gap-0.5 mb-4">
+          @for (star of [1,2,3,4,5]; track star) {
+            <svg class="w-4 h-4 text-amber-400 fill-amber-400" viewBox="0 0 24 24">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+          }
+        </div>
+
+        <!-- Quote -->
+        <p class="text-sm text-[var(--color-text-muted)] leading-relaxed mb-6 flex-1">
+          "{{ t.quote }}"
+        </p>
+
+        <!-- Author -->
+        <div class="flex items-center gap-3 mt-auto">
+          <div class="w-10 h-10 rounded-full bg-gradient-to-br from-[var(--color-accent)] to-[var(--color-primary)] flex items-center justify-center text-white text-sm font-bold shrink-0">
+            {{ t.name.charAt(0) }}
+          </div>
+          <div>
+            <p class="text-sm font-semibold text-[var(--color-text)]">{{ t.name }}</p>
+            <p class="text-xs text-[var(--color-text-muted)]">{{ t.business }}, {{ t.city }}</p>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+
+  <!-- Mobile: carrusel -->
+  <div class="md:hidden">
+    <div class="relative rounded-2xl border border-[var(--color-border)] bg-[var(--color-card-bg)] p-6">
+      <!-- Estrellas -->
+      <div class="flex gap-0.5 mb-4">
+        @for (star of [1,2,3,4,5]; track star) {
+          <svg class="w-4 h-4 text-amber-400 fill-amber-400" viewBox="0 0 24 24">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+          </svg>
+        }
+      </div>
+
+      <p class="text-sm text-[var(--color-text-muted)] leading-relaxed mb-6">
+        "{{ testimonials[activeSlide()].quote }}"
+      </p>
+
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-[var(--color-accent)] to-[var(--color-primary)] flex items-center justify-center text-white text-sm font-bold">
+          {{ testimonials[activeSlide()].name.charAt(0) }}
+        </div>
+        <div>
+          <p class="text-sm font-semibold text-[var(--color-text)]">{{ testimonials[activeSlide()].name }}</p>
+          <p class="text-xs text-[var(--color-text-muted)]">{{ testimonials[activeSlide()].business }}, {{ testimonials[activeSlide()].city }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex justify-center gap-0 mt-4">
+      @for (t of testimonials; track $index; let i = $index) {
+        <button type="button"
+          class="min-w-[44px] min-h-[44px] flex items-center justify-center cursor-pointer"
+          (click)="activeSlide.set(i)"
+          [attr.aria-label]="'Testimonio ' + (i + 1)">
+          <span class="block h-2 rounded-full transition-all"
+            [class.bg-[var(--color-accent)]]="activeSlide() === i"
+            [class.w-6]="activeSlide() === i"
+            [class.w-2]="activeSlide() !== i"
+            [class.bg-[var(--color-border)]]="activeSlide() !== i">
+          </span>
+        </button>
+      }
+    </div>
+  </div>
+</app-section-wrapper>

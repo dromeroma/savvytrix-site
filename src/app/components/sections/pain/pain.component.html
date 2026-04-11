@@ -1,0 +1,37 @@
+<app-section-wrapper sectionId="propuesta">
+  <div class="text-center mb-14">
+    <p class="text-sm font-semibold uppercase tracking-widest text-[var(--color-accent)] mb-3">Por qué Savvitrix</p>
+    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--color-text)] leading-tight text-balance">
+      No buscamos clientes.<br>
+      <span class="text-[var(--color-accent)]">Buscamos socios tecnológicos.</span>
+    </h2>
+    <p class="mt-4 text-[var(--color-text-muted)] max-w-xl mx-auto">
+      Creamos tecnología con propósito: resolver problemas reales de empresas reales en Latinoamérica.
+    </p>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+    @for (v of values; track v.title) {
+      <div class="premium-card rounded-2xl border border-[var(--color-border)] bg-[var(--color-card-bg)] p-6 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5">
+        <div class="premium-card-icon w-12 h-12 rounded-xl bg-[var(--color-accent)]/10 flex items-center justify-center mb-5">
+          @switch (v.icon) {
+            @case ('code') {
+              <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            }
+            @case ('globe') {
+              <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            }
+            @case ('shield') {
+              <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 12 15 16 10"/></svg>
+            }
+            @case ('headphones') {
+              <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
+            }
+          }
+        </div>
+        <h3 class="text-lg font-semibold text-[var(--color-text)] mb-2">{{ v.title }}</h3>
+        <p class="text-sm text-[var(--color-text-muted)] leading-relaxed">{{ v.description }}</p>
+      </div>
+    }
+  </div>
+</app-section-wrapper>

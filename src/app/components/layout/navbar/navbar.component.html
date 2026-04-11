@@ -1,0 +1,84 @@
+<nav
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-200"
+  [class.bg-[var(--color-bg)]/80]="isScrolled()"
+  [class.backdrop-blur-xl]="isScrolled()"
+  [class.shadow-sm]="isScrolled()"
+  [class.border-b]="isScrolled()"
+  [class.border-[var(--color-border)]]="isScrolled()"
+  role="navigation"
+  aria-label="Navegación principal"
+>
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="flex h-16 items-center justify-between lg:h-20">
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-2.5 text-xl font-bold shrink-0">
+        <span class="w-8 h-8 rounded-lg bg-[var(--color-logo-bg)] flex items-center justify-center">
+          <img src="logo.svg" alt="Savvitrix Solutions logo" width="24" height="24">
+        </span>
+        <span>
+          <span class="text-[var(--color-text)]">Savvi</span><span class="text-[var(--color-accent)]">trix</span>
+        </span>
+      </a>
+
+      <!-- Desktop nav -->
+      <div class="hidden lg:flex items-center gap-8">
+        @for (link of navLinks; track link.href) {
+          <a
+            [href]="link.href"
+            class="text-sm font-medium text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors"
+          >
+            {{ link.label }}
+          </a>
+        }
+      </div>
+
+      <!-- Right side -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        <app-theme-switcher />
+
+        <div class="hidden lg:block">
+          <app-button variant="primary" size="sm" [href]="contactUrl" target="_blank">
+            Hablemos
+          </app-button>
+        </div>
+
+        <!-- Mobile hamburger -->
+        <button
+          type="button"
+          class="lg:hidden p-2 text-[var(--color-text)] cursor-pointer"
+          (click)="toggleMobile()"
+          [attr.aria-expanded]="mobileMenuOpen()"
+          aria-label="Abrir menú"
+        >
+          @if (mobileMenuOpen()) {
+            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          } @else {
+            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
+          }
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  @if (mobileMenuOpen()) {
+    <div class="lg:hidden border-t border-[var(--color-border)] bg-[var(--color-bg)]">
+      <div class="px-4 py-6 space-y-1">
+        @for (link of navLinks; track link.href) {
+          <a
+            [href]="link.href"
+            class="block px-3 py-3 text-base font-medium text-[var(--color-text-muted)] hover:text-[var(--color-text)] hover:bg-[var(--color-bg-alt)] rounded-lg transition-colors"
+            (click)="closeMobile()"
+          >
+            {{ link.label }}
+          </a>
+        }
+        <div class="pt-4 mt-4 border-t border-[var(--color-border)]">
+          <app-button variant="primary" size="md" [href]="contactUrl" target="_blank" class="w-full">
+            Hablemos
+          </app-button>
+        </div>
+      </div>
+    </div>
+  }
+</nav>

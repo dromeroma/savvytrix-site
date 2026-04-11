@@ -1,0 +1,36 @@
+<app-section-wrapper sectionId="proceso" extraClass="py-20 lg:py-28 bg-[var(--color-bg-alt)]">
+  <div class="text-center mb-16">
+    <p class="text-sm font-semibold uppercase tracking-widest text-[var(--color-accent)] mb-3">Nuestro proceso</p>
+    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--color-text)] leading-tight text-balance">
+      De la idea al producto<br>
+      <span class="text-[var(--color-accent)]">en 4 pasos.</span>
+    </h2>
+    <p class="mt-4 text-[var(--color-text-muted)] max-w-xl mx-auto">
+      Sin sorpresas, sin letra pequeña. Sabes qué esperar en cada etapa.
+    </p>
+  </div>
+
+  <div class="relative max-w-3xl mx-auto" #stepsContainer>
+    <!-- Progress line -->
+    <div class="absolute left-6 lg:left-8 top-0 bottom-0 w-px bg-[var(--color-border)]">
+      <div class="progress-line-fill absolute inset-0 bg-[var(--color-accent)] origin-top"></div>
+    </div>
+
+    <div class="space-y-10 lg:space-y-14">
+      @for (step of steps; track step.number) {
+        <div class="step-item flex gap-6 lg:gap-8 items-start">
+          <!-- Step number circle -->
+          <div class="shrink-0 w-12 h-12 lg:w-16 lg:h-16 rounded-full bg-[var(--color-accent)]/10 border-2 border-[var(--color-accent)] flex items-center justify-center z-10">
+            <span class="text-sm lg:text-base font-bold text-[var(--color-accent)]">{{ step.number }}</span>
+          </div>
+
+          <!-- Content -->
+          <div class="pt-1">
+            <h3 class="text-xl font-bold text-[var(--color-text)] mb-2">{{ step.title }}</h3>
+            <p class="text-[var(--color-text-muted)] leading-relaxed">{{ step.description }}</p>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</app-section-wrapper>

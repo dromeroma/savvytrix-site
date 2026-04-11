@@ -1,0 +1,155 @@
+<app-section-wrapper extraClass="py-20 lg:py-28 bg-[var(--color-bg-alt)]">
+  <div class="text-center mb-14">
+    <p class="text-sm font-semibold uppercase tracking-widest text-[var(--color-accent)] mb-3">Experiencia visual</p>
+    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--color-text)] leading-tight text-balance">
+      Diseño que se adapta.
+    </h2>
+    <p class="text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--color-accent)] leading-tight mt-1 mb-6">
+      Hasta los colores.
+    </p>
+    <p class="text-[var(--color-text-muted)] max-w-xl mx-auto leading-relaxed">
+      Nuestros productos soportan temas visuales dinámicos. Prueba cambiando el modo y mira cómo toda la página reacciona en tiempo real.
+    </p>
+  </div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+    <!-- Controls -->
+    <div>
+      <!-- Mode buttons -->
+      <p class="text-xs font-semibold uppercase tracking-widest text-[var(--color-text-muted)] mb-4">Elige un modo</p>
+      <div class="flex flex-wrap gap-3 mb-8" role="tablist">
+        <button
+          type="button"
+          class="flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-semibold transition-all duration-200 cursor-pointer"
+          [class.bg-[var(--color-accent)]]="(theme.mode$ | async) === 'light'"
+          [class.text-white]="(theme.mode$ | async) === 'light'"
+          [class.shadow-md]="(theme.mode$ | async) === 'light'"
+          [class.bg-[var(--color-card-bg)]]="(theme.mode$ | async) !== 'light'"
+          [class.border]="(theme.mode$ | async) !== 'light'"
+          [class.border-[var(--color-border)]]="(theme.mode$ | async) !== 'light'"
+          [class.text-[var(--color-text-muted)]]="(theme.mode$ | async) !== 'light'"
+          (click)="setMode('light')"
+        >
+          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          Claro
+        </button>
+        <button
+          type="button"
+          class="flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-semibold transition-all duration-200 cursor-pointer"
+          [class.bg-[var(--color-accent)]]="(theme.mode$ | async) === 'dark'"
+          [class.text-white]="(theme.mode$ | async) === 'dark'"
+          [class.shadow-md]="(theme.mode$ | async) === 'dark'"
+          [class.bg-[var(--color-card-bg)]]="(theme.mode$ | async) !== 'dark'"
+          [class.border]="(theme.mode$ | async) !== 'dark'"
+          [class.border-[var(--color-border)]]="(theme.mode$ | async) !== 'dark'"
+          [class.text-[var(--color-text-muted)]]="(theme.mode$ | async) !== 'dark'"
+          (click)="setMode('dark')"
+        >
+          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          Oscuro
+        </button>
+        <button
+          type="button"
+          class="flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-semibold transition-all duration-200 cursor-pointer"
+          [class.bg-[var(--color-accent)]]="(theme.mode$ | async) === 'fun'"
+          [class.text-white]="(theme.mode$ | async) === 'fun'"
+          [class.shadow-md]="(theme.mode$ | async) === 'fun'"
+          [class.bg-[var(--color-card-bg)]]="(theme.mode$ | async) !== 'fun'"
+          [class.border]="(theme.mode$ | async) !== 'fun'"
+          [class.border-[var(--color-border)]]="(theme.mode$ | async) !== 'fun'"
+          [class.text-[var(--color-text-muted)]]="(theme.mode$ | async) !== 'fun'"
+          (click)="setMode('fun')"
+        >
+          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+          Divertido
+        </button>
+      </div>
+
+      <!-- Palette swatches (visible in fun mode) -->
+      @if ((theme.mode$ | async) === 'fun') {
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-widest text-[var(--color-text-muted)] mb-4">Elige una paleta</p>
+          <div class="flex flex-wrap gap-3">
+            @for (p of palettes; track p.id) {
+              <button
+                type="button"
+                class="group relative w-12 h-12 rounded-full border-2 transition-all duration-200 cursor-pointer hover:scale-110"
+                [style.background]="'linear-gradient(135deg, ' + p.primary + ', ' + p.accent + ')'"
+                [class.border-[var(--color-text)]]="(theme.palette$ | async) === p.id"
+                [class.scale-110]="(theme.palette$ | async) === p.id"
+                [class.border-transparent]="(theme.palette$ | async) !== p.id"
+                [class.shadow-lg]="(theme.palette$ | async) === p.id"
+                [title]="p.label"
+                (click)="setPalette(p.id)"
+              >
+                <span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] font-medium text-[var(--color-text-muted)] whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
+                  {{ p.label }}
+                </span>
+              </button>
+            }
+          </div>
+        </div>
+      }
+    </div>
+
+    <!-- Mini mockup — reacts to theme -->
+    <div class="rounded-2xl border border-[var(--color-border)] bg-[var(--color-card-bg)] shadow-2xl overflow-hidden p-6">
+      <div class="space-y-4">
+        <!-- Header bar -->
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <div class="w-8 h-8 rounded-lg bg-[var(--color-accent)] flex items-center justify-center">
+              <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+            </div>
+            <span class="text-sm font-bold text-[var(--color-text)]">Savvitrix</span>
+          </div>
+          <div class="w-7 h-7 rounded-full bg-[var(--color-accent)]/20 flex items-center justify-center">
+            <div class="w-3 h-3 rounded-full bg-[var(--color-accent)]/50"></div>
+          </div>
+        </div>
+
+        <!-- Stats cards -->
+        <div class="grid grid-cols-3 gap-3">
+          <div class="rounded-xl bg-[var(--color-bg-alt)] p-3">
+            <p class="text-[10px] text-[var(--color-text-muted)] mb-1">Proyectos</p>
+            <p class="text-base font-bold text-[var(--color-text)]">42</p>
+          </div>
+          <div class="rounded-xl bg-[var(--color-accent)]/10 p-3">
+            <p class="text-[10px] text-[var(--color-text-muted)] mb-1">Clientes</p>
+            <p class="text-base font-bold text-[var(--color-accent)]">128</p>
+          </div>
+          <div class="rounded-xl bg-[var(--color-bg-alt)] p-3">
+            <p class="text-[10px] text-[var(--color-text-muted)] mb-1">Apps activas</p>
+            <p class="text-base font-bold text-[var(--color-text)]">10</p>
+          </div>
+        </div>
+
+        <!-- Bar chart -->
+        <div class="rounded-xl bg-[var(--color-bg-alt)] p-4 h-24 flex items-end gap-1">
+          @for (h of [40, 60, 35, 80, 55, 70, 90, 45, 65, 50, 75, 85]; track $index) {
+            <div
+              class="flex-1 rounded-t bg-[var(--color-accent)] transition-all duration-300"
+              [style.height.%]="h"
+              [style.opacity]="$index === 6 ? 1 : 0.5 + $index * 0.04"
+            ></div>
+          }
+        </div>
+
+        <!-- Table rows -->
+        <div class="space-y-2">
+          @for (row of [
+            { label: 'SavvyPOS', amount: 'Activo' },
+            { label: 'SavvyAccounting', amount: 'Activo' },
+            { label: 'SavvyChurch', amount: 'Activo' }
+          ]; track row.label) {
+            <div class="flex items-center gap-3 rounded-lg bg-[var(--color-bg-alt)] p-2.5">
+              <div class="w-6 h-6 rounded-full bg-[var(--color-accent)]/20 shrink-0"></div>
+              <div class="flex-1 text-xs text-[var(--color-text)]">{{ row.label }}</div>
+              <div class="text-xs font-semibold text-[var(--color-accent)]">{{ row.amount }}</div>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</app-section-wrapper>
