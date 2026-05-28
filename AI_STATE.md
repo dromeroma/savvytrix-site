@@ -1,20 +1,20 @@
-# AI_STATE.md — Estado del Proyecto SavvyPOS Landing
+# AI_STATE.md — Estado del Proyecto Savvitrix Solutions Landing
 
-> Última actualización: 2026-02-27
+> Última actualización: 2026-05-28
 
 ## Estado actual
 
-El sitio web comercial de SavvyPOS ha sido reestructurado completamente siguiendo el prompt maestro en `docs/website.md`. El proyecto compila sin warnings con `ng build`. El sitio es una single-page landing con 13 secciones, sistema de theming con 3 modos (claro, oscuro, divertido) y 7 paletas de color.
+El sitio corporativo de **Savvitrix Solutions** está listo en su versión `1.0.0`. La transformación desde el landing original de SavvyPOS está completa: el hero, los CTAs, el ecosistema de productos Savvy, los servicios, el proceso, las industrias y la CTA final hablan ya de la empresa multi-producto, no del POS individual. Las páginas legales (`/privacidad`, `/terminos`) fueron reescritas para cubrir tanto el ecosistema SaaS como los servicios profesionales (desarrollo, IA, mecatrónica, consultoría).
 
 ## Stack técnico
 
-- **Angular 21.1.4** (standalone components, SSR con @angular/ssr)
+- **Angular 21.1.4** (standalone components, SSR con `@angular/ssr`)
 - **TypeScript 5.9.2** (strict mode)
 - **Tailwind CSS v4.1.17** via PostCSS
-- **GSAP + ScrollTrigger** para scroll animations (lazy-loaded en cliente)
-- **@angular/animations** para transiciones UI (stagger, fade, tab crossfade)
+- **GSAP + ScrollTrigger** lazy-loaded en cliente
+- **@angular/animations** para transiciones UI
 - **Font: Inter** (Google Fonts) + system-ui fallback
-- **Zoneless change detection** (`provideZonelessChangeDetection()`)
+- **Zoneless change detection**
 - **SSR con Express** + hydration con event replay
 
 ## Arquitectura de archivos
@@ -23,91 +23,100 @@ El sitio web comercial de SavvyPOS ha sido reestructurado completamente siguiend
 src/app/
 ├── components/
 │   ├── layout/           # navbar, footer
-│   ├── sections/         # 11 secciones del sitio
+│   ├── sections/         # 9 secciones activas en la home
 │   │   ├── hero/
-│   │   ├── social-proof/
-│   │   ├── differentiators/
-│   │   ├── benefits-by-role/
-│   │   ├── how-it-works/       # GSAP ScrollTrigger
-│   │   ├── product-showcase/   # Tabs con @angular/animations
-│   │   ├── innovation/
-│   │   ├── theming-demo/       # Demo interactiva del theme
+│   │   ├── pain/                  # Propuesta de valor
+│   │   ├── product-showcase/      # Ecosistema Savvy (10 apps)
+│   │   ├── differentiators/       # 8 servicios
+│   │   ├── how-it-works/          # Proceso 4 pasos (GSAP)
+│   │   ├── benefits-by-role/      # Industrias
+│   │   ├── theming-demo/          # Demo interactiva del theme
 │   │   ├── testimonials/
-│   │   ├── pricing/
-│   │   └── final-cta/
+│   │   └── final-cta/             # CTA WhatsApp
 │   ├── ui/               # button, card, badge, theme-switcher, animated-counter, tab-group
-│   └── shared/           # section-wrapper (fade-in), mockup-frame
-├── directives/           # in-view (IntersectionObserver), parallax
-├── services/             # theme.service (3 modos + 7 paletas), scroll.service
-└── models/               # theme.model, content.model
+│   └── shared/           # section-wrapper, mockup-frame
+├── pages/
+│   ├── home/
+│   ├── privacy/          # Política de privacidad (Savvitrix Solutions)
+│   └── terms/            # Términos y condiciones (Savvitrix Solutions)
+├── directives/           # in-view, parallax
+├── services/             # theme.service, scroll.service
+├── models/               # theme.model, content.model
+└── config.ts             # WhatsApp, URLs de apps Savvy, social
 ```
+
+> Las secciones `social-proof`, `innovation` y `pricing` se mantienen como componentes en disco pero no están enlazadas en `home.component.html`. No se borraron por si se quieren reactivar.
+
+## Configuración crítica (`src/app/config.ts`)
+
+- WhatsApp ventas: `573135487605`
+- WhatsApp soporte: `573207345154`
+- SavvyPOS app: `https://app.savvypos.com`
+- Resto del ecosistema: `https://app.savvytrix.com`
+- Social (Instagram/LinkedIn/Twitter): aún en `#` — pendiente del negocio
+
+## Productos del ecosistema Savvy (10)
+
+| App | Estado |
+|-----|--------|
+| SavvyPOS | Disponible |
+| SavvyAccounting | Disponible |
+| SavvyChurch | Disponible |
+| SavvyCondo | Próximamente |
+| SavvyEdu | Próximamente |
+| SavvyHealth | Próximamente |
+| SavvyCRM | Próximamente |
+| SavvyCredit | Próximamente |
+| SavvyParking | Próximamente |
+| SavvyFamily | Próximamente |
+
+## SEO / Open Graph
+
+- Meta tags completos (description, keywords, OG, Twitter)
+- JSON-LD `Organization` en `index.html`
+- `sitemap.xml` y `robots.txt` en `public/`
+- Canonical: `https://savvitrix.com/`
+- **OG image:** `public/og-image.svg` (1200×630) generada — para máxima compatibilidad con WhatsApp se recomienda convertir a PNG y reemplazar las referencias en `index.html`.
 
 ## Sistema de theming
 
-El `ThemeService` aplica `data-theme` en `<html>` con estos valores:
+`ThemeService` aplica `data-theme` en `<html>`:
 - `light` — modo claro (default)
 - `dark` — modo oscuro
 - `fun-{paletteId}` — modo divertido con paleta: tropical, neon, sunset, ocean, candy, forest, lava
 
-Las CSS custom properties (`--color-primary`, `--color-accent`, `--color-bg`, etc.) se definen en `src/styles.css` para cada valor de `data-theme`. Todos los componentes usan estas variables via `var(--color-xxx)` en las clases de Tailwind.
-
-Persistencia: `localStorage` keys `sv-theme` (modo) y `sv-palette` (paleta activa).
+CSS custom properties en `src/styles.css`. Persistencia en `localStorage` (`sv-theme`, `sv-palette`).
 
 ## Rendimiento
 
-- `@defer (on viewport)` para secciones below-the-fold (how-it-works, product-showcase, innovation, theming-demo, testimonials, pricing)
-- GSAP cargado solo en cliente via `dynamic import` dentro de `afterNextRender`
-- Initial bundle: ~416kB (bajo el budget de 500kB)
-- Lazy chunks separados para GSAP ScrollTrigger y cada sección deferred
+- `@defer (on viewport)` en las secciones below-the-fold
+- GSAP cargado solo en cliente vía dynamic import dentro de `afterNextRender`
+- Initial bundle: ~122 kB (muy por debajo del budget de 500 kB)
 
-## SEO
+## Pendientes para producción
 
-- Meta tags completos (description, keywords, OG, Twitter)
-- JSON-LD Schema.org `SoftwareApplication` en `index.html`
-- `sitemap.xml` y `robots.txt` en `public/`
-- Canonical URL configurada
-- SSR garantiza HTML completo para crawlers
-- Skip-to-content link para accesibilidad
+### Bloqueantes que NO requieren código
+- Reemplazar **testimonios** (`testimonials.component.ts`) por reales o casos de estudio verificables — los actuales son placeholders representativos con nombres ficticios.
+- Verificar que `app.savvytrix.com` y `app.savvypos.com` estén vivas con SSL antes de promocionar.
+- Confirmar dominio `savvitrix.com` desplegado con HTTPS.
 
-## Contenido pendiente (TODOs)
+### Recomendados antes de lanzar
+- URLs reales de Instagram / LinkedIn / Twitter en `src/app/config.ts` (hoy son `#`).
+- Datos legales de la empresa (razón social, NIT, dirección, email corporativo) — no fueron añadidos al footer ni a las páginas legales por decisión del negocio.
+- Convertir `og-image.svg` a PNG para compatibilidad con WhatsApp.
+- Sustituir `apple-touch-icon` por PNG 180×180 (hoy apunta a `.ico`).
+- Integrar analítica (GA4 / Plausible / similar) si se quiere medir conversión.
 
-### Assets por producir
-Cada posición está marcada con `<!-- ASSET: nombre.png (WxH) -->` en los templates:
-1. `hero-dashboard.png` (1400×900) — Mockup del dashboard en laptop
-2. `screenshot-pos.png` (1280×720) — POS con carrito
-3. `screenshot-dashboard.png` (1280×720) — Dashboard del dueño
-4. `screenshot-inventory.png` (1280×720) — Tabla de inventario
-5. `screenshot-customers.png` (1280×720) — Clientes y fiado
-6. `screenshot-reports.png` (1280×720) — Z-Report
-7. `avatar-1.jpg`, `avatar-2.jpg`, `avatar-3.jpg` (80×80) — Testimonios
-8. `og-image.png` (1200×630) — Open Graph
-9. `logo.svg` / `logo-white.svg` — Logo
-10. `favicon.ico` + `icon.svg` — Favicons
-
-### Precios
-Marcados con `<!-- PRECIO: ajustar -->` en pricing. Plan Pro tiene `$XX.XXX` como placeholder.
-
-### Links
-- WhatsApp: `https://wa.me/57XXXXXXXXXX` — actualizar con número real
-- Links del footer (Centro de ayuda, Blog, API docs, etc.) apuntan a `#`
-- CTA buttons apuntan a `#precios` o `#`
-
-### Testimonios
-Los textos de testimonios son placeholders representativos. Reemplazar con testimonios reales cuando estén disponibles.
-
-## Decisiones técnicas
-
-1. **Lucide icons via SVG inline** — No se instaló librería Angular de iconos. Los SVGs están directamente en los templates como indica el prompt.
-2. **No se creó `content.model.ts` con datos centralizados** — Cada componente de sección tiene sus datos inline como arrays readonly. Esto es intencional para mantener los componentes autocontenidos.
-3. **SSR prerender warning** — `NotYetImplemented` error al prerender es un bug conocido de domino (el DOM server-side de Angular) con `style.setProperty()`. Non-fatal, la ruta se prerenderiza correctamente.
-4. **Removed swiper** — Se eliminó la dependencia `swiper` ya que no se usa en la nueva estructura.
-5. **No se crearon NgModules** — Todos los componentes son standalone como indica el prompt.
+### Mejoras nice-to-have
+- Página 404 personalizada.
+- `manifest.json` + PWA install prompt si se planea instalación.
+- Formulario de contacto vía Formspree/EmailJS además del flujo de WhatsApp.
 
 ## Comandos
 
 ```bash
-ng serve                          # Dev server localhost:4200
-ng build                          # Production build con SSR
-ng test                           # Unit tests (Karma + Jasmine)
-npm run serve:ssr:savvypos-landing # SSR server en puerto 4000
+ng serve                           # Dev server (puerto configurado en angular.json)
+ng build                           # Production build con SSR
+ng test                            # Unit tests
+npm run serve:ssr:savvy-landing    # SSR server
 ```

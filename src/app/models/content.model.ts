@@ -33,6 +33,8 @@ export interface Testimonial {
   name: string;
   business: string;
   city: string;
+  logo?: string;
+  logoScale?: number;
 }
 
 export interface PricingPlan {

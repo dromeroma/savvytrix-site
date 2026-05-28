@@ -13,40 +13,29 @@ export class TestimonialsComponent {
 
   readonly testimonials: Testimonial[] = [
     {
-      quote: 'Savvitrix nos ayudó a digitalizar toda la operación de nuestras 3 tiendas en menos de un mes. Ahora controlamos inventario, ventas y cajeros desde el celular.',
-      name: 'Rodrigo M.',
-      business: 'Minimercado Villa del Río',
-      city: 'Bogotá',
+      quote:
+        'Como modista llevaba toda mi clientela en un cuaderno: los pedidos, los abonos, las entregas. Con SavvyPOS por fin tengo cada vestido organizado por cliente, sé quién me debe qué y cuánta tela me queda. Mi negocio se ve mucho más serio cuando la clienta ve su factura.',
+      name: 'Neila Torres',
+      business: 'Sabis Creaciones',
+      city: 'Apartadó, Antioquia',
+      logo: 'testimonials/sabis-creaciones.png',
     },
     {
-      quote: 'Necesitábamos un software para gestionar los miembros de nuestra iglesia y Savvitrix lo construyó exactamente como lo necesitábamos. El soporte por WhatsApp es increíble.',
-      name: 'Pastor Daniel F.',
-      business: 'Iglesia Vida Nueva',
-      city: 'Medellín',
+      quote:
+        'Antes de SavvyPOS perdía dinero porque no sabía bien qué se vendía más ni qué me iba faltando en la estantería. Ahora cierro caja en dos minutos y al otro día sé exactamente qué pedirle al proveedor. Las cajeras lo aprendieron de una y la operación se volvió mucho más rápida.',
+      name: 'Eduard Álvarez',
+      business: 'Minimercado Bacota',
+      city: 'Apartadó, Antioquia',
+      logo: 'testimonials/minimercado-bacota.png',
+      logoScale: 1.5,
     },
     {
-      quote: 'Buscamos varias empresas para hacer nuestra app de parqueaderos. Savvitrix fue la única que entendió la operación real del negocio y entregó a tiempo.',
-      name: 'Carolina P.',
-      business: 'Parking Solutions',
-      city: 'Cali',
-    },
-    {
-      quote: 'El equipo de Savvitrix integró sensores IoT en nuestro cultivo de tomate. Ahora monitoreamos humedad y temperatura en tiempo real desde el dashboard.',
-      name: 'Miguel A.',
-      business: 'Finca San Rafael',
-      city: 'Boyacá',
-    },
-    {
-      quote: 'Nos hicieron un landing page que convierte como ninguna otra. El sistema de temas dinámicos fue un diferenciador para nuestra marca.',
-      name: 'Sandra B.',
-      business: 'Boutique Essence',
-      city: 'Barranquilla',
-    },
-    {
-      quote: 'Contratamos el desarrollo de un CRM personalizado. Las entregas semanales con demo funcional nos dieron confianza total durante todo el proceso.',
-      name: 'Claudia R.',
-      business: 'Distribuidora Nacional',
-      city: 'Manizales',
+      quote:
+        'En la tienda casi todo el mundo me compra fiado. Antes apuntaba todo en hojas que se mojaban o se me perdían. Con SavvyPOS llevo cada deuda en el celular y al cliente le mando el saldo por WhatsApp. Eso solito ya me cambió el negocio.',
+      name: 'Eimer Álvarez',
+      business: 'Tienda Serranía',
+      city: 'Apartadó, Antioquia',
+      logo: 'testimonials/tienda-serrania.png',
     },
   ];
 

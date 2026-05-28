@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Savvitrix Solutions — Transformamos ideas en tecnología que funciona">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0A0F1F"/>
+      <stop offset="55%" stop-color="#062B25"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="80%" cy="20%" r="55%">
+      <stop offset="0%" stop-color="#10B981" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#10B981" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M 48 0 L 0 0 0 48" fill="none" stroke="#ffffff" stroke-opacity="0.06" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+
+  <g transform="translate(80, 120)">
+    <g transform="translate(0, 0)">
+      <circle cx="28" cy="28" r="28" fill="#059669"/>
+      <path d="M 16 28 L 25 37 L 42 20" fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <text x="76" y="40" font-family="Inter, system-ui, sans-serif" font-size="32" font-weight="700" fill="#ffffff">
+      <tspan>Savvi</tspan><tspan fill="#10B981">trix</tspan>
+    </text>
+    <text x="76" y="66" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="500" fill="#A7F3D0" letter-spacing="2">SOLUTIONS</text>
+  </g>
+
+  <text x="80" y="340" font-family="Inter, system-ui, sans-serif" font-size="68" font-weight="800" fill="#ffffff" letter-spacing="-1.5">
+    Transformamos ideas en
+  </text>
+  <text x="80" y="420" font-family="Inter, system-ui, sans-serif" font-size="68" font-weight="800" fill="#10B981" letter-spacing="-1.5">
+    tecnología que funciona.
+  </text>
+
+  <text x="80" y="490" font-family="Inter, system-ui, sans-serif" font-size="26" font-weight="500" fill="#D1D5DB">
+    Software · IA · Mecatrónica · Ecosistema Savvy
+  </text>
+
+  <g transform="translate(80, 540)" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="600" fill="#ffffff">
+    <g>
+      <rect x="0" y="0" width="158" height="40" rx="20" fill="#ffffff" fill-opacity="0.08" stroke="#10B981" stroke-opacity="0.4"/>
+      <text x="79" y="26" text-anchor="middle">savvitrix.com</text>
+    </g>
+    <g transform="translate(178, 0)">
+      <rect x="0" y="0" width="170" height="40" rx="20" fill="#ffffff" fill-opacity="0.08" stroke="#10B981" stroke-opacity="0.4"/>
+      <text x="85" y="26" text-anchor="middle">Sede LATAM</text>
+    </g>
+    <g transform="translate(368, 0)">
+      <rect x="0" y="0" width="200" height="40" rx="20" fill="#ffffff" fill-opacity="0.08" stroke="#10B981" stroke-opacity="0.4"/>
+      <text x="100" y="26" text-anchor="middle">10 apps Savvy</text>
+    </g>
+  </g>
+</svg>
