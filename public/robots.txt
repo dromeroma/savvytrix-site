@@ -1,4 +1,19 @@
 User-agent: *
 Allow: /
+Disallow: /api/
+
+# AI training crawlers — allow indexing but be explicit
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
 
 Sitemap: https://savvitrix.com/sitemap.xml
+Host: https://savvitrix.com

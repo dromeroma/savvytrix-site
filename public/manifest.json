@@ -1,0 +1,27 @@
+{
+  "name": "Savvitrix Solutions",
+  "short_name": "Savvitrix",
+  "description": "Empresa de tecnología en Latinoamérica. Software a medida, inteligencia artificial, mecatrónica y el ecosistema de apps Savvy.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#020617",
+  "theme_color": "#059669",
+  "lang": "es-CO",
+  "dir": "ltr",
+  "categories": ["business", "productivity", "technology"],
+  "icons": [
+    {
+      "src": "/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    }
+  ]
+}
