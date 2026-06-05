@@ -31,13 +31,13 @@ export class ProductShowcaseComponent {
     { name: 'SavvyCRM', description: 'Pipeline comercial: leads, deals, contactos y actividades', icon: 'users', status: 'available', url: SAVVYTRIX_APP_URL },
     { name: 'SavvyParking', description: 'Parqueaderos: sesiones, tarifas y servicios adicionales', icon: 'map-pin', status: 'available', url: SAVVYTRIX_APP_URL },
     { name: 'SavvyFamily', description: 'Genograma familiar: relaciones, notas clínicas y visualización', icon: 'users-round', status: 'available', url: SAVVYTRIX_APP_URL },
+    { name: 'SavvyHR', description: 'Talento humano: empleados, nómina, vacaciones y evaluaciones', icon: 'briefcase', status: 'available', url: SAVVYTRIX_APP_URL },
     // ── Próximamente ─────────────────────────────────────────────────────
     { name: 'SavvyChain', description: 'Cadena de suministro: proveedores, compras, inventarios y trazabilidad', icon: 'link-2', status: 'coming-soon', url: SAVVYTRIX_APP_URL },
     { name: 'SavvyFlow', description: 'Automatización de procesos: flujos de aprobación, tareas y notificaciones', icon: 'git-branch', status: 'coming-soon', url: SAVVYTRIX_APP_URL },
     { name: 'SavvyMarket', description: 'Marketplace y e-commerce: catálogo, carrito, pedidos y pagos', icon: 'shopping-bag', status: 'coming-soon', url: SAVVYTRIX_APP_URL },
     { name: 'SavvyAnalytics', description: 'Business intelligence: reportes, KPIs y visualización avanzada', icon: 'bar-chart', status: 'coming-soon', url: SAVVYTRIX_APP_URL },
     { name: 'SavvyLegal', description: 'Gestión jurídica: contratos, casos y documentos legales', icon: 'scale', status: 'coming-soon', url: SAVVYTRIX_APP_URL },
-    { name: 'SavvyHR', description: 'Talento humano: empleados, nómina, vacaciones y evaluaciones', icon: 'briefcase', status: 'coming-soon', url: SAVVYTRIX_APP_URL },
     { name: 'SavvySecure', description: 'Seguridad física: cámaras, rondas y control de acceso', icon: 'shield', status: 'coming-soon', url: SAVVYTRIX_APP_URL },
     { name: 'SavvyAI', description: 'Agentes IA, asistentes conversacionales y automatización inteligente', icon: 'cpu', status: 'coming-soon', url: SAVVYTRIX_APP_URL },
   ];
