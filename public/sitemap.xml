@@ -3,31 +3,31 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
-    <loc>https://savvitrix.com/</loc>
+    <loc>https://savvytrix.com/</loc>
     <lastmod>2026-06-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="https://savvitrix.com/"/>
-    <xhtml:link rel="alternate" hreflang="es-CO" href="https://savvitrix.com/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://savvitrix.com/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://savvytrix.com/"/>
+    <xhtml:link rel="alternate" hreflang="es-CO" href="https://savvytrix.com/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://savvytrix.com/"/>
     <image:image>
-      <image:loc>https://savvitrix.com/og-image.png</image:loc>
+      <image:loc>https://savvytrix.com/og-image.png</image:loc>
       <image:title>Savvitrix Solutions — Transformamos ideas en tecnología que funciona</image:title>
       <image:caption>Empresa de tecnología en Latinoamérica. Software, IA, mecatrónica y ecosistema Savvy.</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://savvitrix.com/logo.svg</image:loc>
+      <image:loc>https://savvytrix.com/logo.svg</image:loc>
       <image:title>Savvitrix Solutions logo</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://savvitrix.com/privacidad</loc>
+    <loc>https://savvytrix.com/privacidad</loc>
     <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://savvitrix.com/terminos</loc>
+    <loc>https://savvytrix.com/terminos</loc>
     <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>

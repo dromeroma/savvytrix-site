@@ -15,5 +15,5 @@ Allow: /
 User-agent: Google-Extended
 Allow: /
 
-Sitemap: https://savvitrix.com/sitemap.xml
-Host: https://savvitrix.com
+Sitemap: https://savvytrix.com/sitemap.xml
+Host: https://savvytrix.com

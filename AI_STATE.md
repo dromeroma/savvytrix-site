@@ -75,7 +75,7 @@ src/app/
 - Meta tags completos (description, keywords, OG, Twitter)
 - JSON-LD `Organization` en `index.html`
 - `sitemap.xml` y `robots.txt` en `public/`
-- Canonical: `https://savvitrix.com/`
+- Canonical: `https://savvytrix.com/`
 - **OG image:** `public/og-image.svg` (1200×630) generada — para máxima compatibilidad con WhatsApp se recomienda convertir a PNG y reemplazar las referencias en `index.html`.
 
 ## Sistema de theming
@@ -98,7 +98,7 @@ CSS custom properties en `src/styles.css`. Persistencia en `localStorage` (`sv-t
 ### Bloqueantes que NO requieren código
 - Reemplazar **testimonios** (`testimonials.component.ts`) por reales o casos de estudio verificables — los actuales son placeholders representativos con nombres ficticios.
 - Verificar que `app.savvytrix.com` y `app.savvypos.com` estén vivas con SSL antes de promocionar.
-- Confirmar dominio `savvitrix.com` desplegado con HTTPS.
+- Confirmar dominio `savvytrix.com` desplegado con HTTPS.
 
 ### Recomendados antes de lanzar
 - URLs reales de Instagram / LinkedIn / Twitter en `src/app/config.ts` (hoy son `#`).
