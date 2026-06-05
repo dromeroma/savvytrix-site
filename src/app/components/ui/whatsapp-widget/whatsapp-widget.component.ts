@@ -19,5 +19,5 @@ import { WHATSAPP_URL } from '../../../config';
   `,
 })
 export class WhatsAppWidgetComponent {
-  readonly whatsappLink = `${WHATSAPP_URL}?text=${encodeURIComponent('Hola, quiero información sobre Savvitrix Solutions')}`;
+  readonly whatsappLink = `${WHATSAPP_URL}?text=${encodeURIComponent('Hola, quiero información sobre Savvytrix Solutions')}`;
 }

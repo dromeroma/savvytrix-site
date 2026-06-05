@@ -1,10 +1,10 @@
-# AI_STATE.md — Estado del Proyecto Savvitrix Solutions Landing
+# AI_STATE.md — Estado del Proyecto Savvytrix Solutions Landing
 
 > Última actualización: 2026-05-28
 
 ## Estado actual
 
-El sitio corporativo de **Savvitrix Solutions** está listo en su versión `1.0.0`. La transformación desde el landing original de SavvyPOS está completa: el hero, los CTAs, el ecosistema de productos Savvy, los servicios, el proceso, las industrias y la CTA final hablan ya de la empresa multi-producto, no del POS individual. Las páginas legales (`/privacidad`, `/terminos`) fueron reescritas para cubrir tanto el ecosistema SaaS como los servicios profesionales (desarrollo, IA, mecatrónica, consultoría).
+El sitio corporativo de **Savvytrix Solutions** está listo en su versión `1.0.0`. La transformación desde el landing original de SavvyPOS está completa: el hero, los CTAs, el ecosistema de productos Savvy, los servicios, el proceso, las industrias y la CTA final hablan ya de la empresa multi-producto, no del POS individual. Las páginas legales (`/privacidad`, `/terminos`) fueron reescritas para cubrir tanto el ecosistema SaaS como los servicios profesionales (desarrollo, IA, mecatrónica, consultoría).
 
 ## Stack técnico
 
@@ -37,8 +37,8 @@ src/app/
 │   └── shared/           # section-wrapper, mockup-frame
 ├── pages/
 │   ├── home/
-│   ├── privacy/          # Política de privacidad (Savvitrix Solutions)
-│   └── terms/            # Términos y condiciones (Savvitrix Solutions)
+│   ├── privacy/          # Política de privacidad (Savvytrix Solutions)
+│   └── terms/            # Términos y condiciones (Savvytrix Solutions)
 ├── directives/           # in-view, parallax
 ├── services/             # theme.service, scroll.service
 ├── models/               # theme.model, content.model

@@ -1,4 +1,4 @@
-# CLAUDE.md — Savvitrix Solutions Landing Page
+# CLAUDE.md — Savvytrix Solutions Landing Page
 
 This file provides guidance to Claude Code when working in this repository.
 
@@ -6,9 +6,9 @@ This file provides guidance to Claude Code when working in this repository.
 
 ## MISIÓN PRINCIPAL (leer antes de tocar cualquier código)
 
-Este proyecto era originalmente el landing de **SavvyPOS**. Ahora debe convertirse en el sitio web corporativo de **Savvitrix Solutions** — una empresa de tecnología multi-producto (estilo Google / Amazon) con sede en Latinoamérica.
+Este proyecto era originalmente el landing de **SavvyPOS**. Ahora debe convertirse en el sitio web corporativo de **Savvytrix Solutions** — una empresa de tecnología multi-producto (estilo Google / Amazon) con sede en Latinoamérica.
 
-**Objetivo:** Eliminar TODO el contenido de SavvyPOS y rediseñar/reescribir el sitio para representar a Savvitrix Solutions como empresa: sus servicios, sus productos Savvy, y su visión.
+**Objetivo:** Eliminar TODO el contenido de SavvyPOS y rediseñar/reescribir el sitio para representar a Savvytrix Solutions como empresa: sus servicios, sus productos Savvy, y su visión.
 
 > Consulta `LANDING_CONTEXT.md` para el contexto original del proyecto (arquitectura, decisiones técnicas). No borres ese archivo.
 
@@ -33,17 +33,17 @@ git push -u origin main
 
 ---
 
-## Savvitrix Solutions — Identidad y visión
+## Savvytrix Solutions — Identidad y visión
 
-**Nombre:** Savvitrix Solutions  
+**Nombre:** Savvytrix Solutions  
 **Tagline:** *"Transformamos ideas en tecnología que funciona"*  
 **Mercado:** Latinoamérica  
 **Idioma del sitio:** Español latinoamericano (neutro, profesional)  
 **Tono:** Serio pero cercano, innovador, confiable. No demasiado corporativo. Similar al tono de Notion, Linear o Vercel.
 
-### Qué hace Savvitrix Solutions
+### Qué hace Savvytrix Solutions
 
-Savvitrix Solutions es una empresa de tecnología con tres pilares:
+Savvytrix Solutions es una empresa de tecnología con tres pilares:
 
 1. **Productos propios** — El ecosistema Savvy (software SaaS multi-tenant)
 2. **Servicios de desarrollo** — Desarrollo a medida para terceros
@@ -51,7 +51,7 @@ Savvitrix Solutions es una empresa de tecnología con tres pilares:
 
 ---
 
-## Servicios de Savvitrix Solutions (secciones que deben aparecer en el sitio)
+## Servicios de Savvytrix Solutions (secciones que deben aparecer en el sitio)
 
 ### Desarrollo de Software
 - Desarrollo web y móvil a medida
@@ -103,7 +103,7 @@ Savvitrix Solutions es una empresa de tecnología con tres pilares:
 
 ## Ecosistema Savvy (productos propios — sección destacada)
 
-Estos son los productos SaaS de Savvitrix Solutions. Deben tener una sección prominente en el sitio, tipo "nuestros productos" o "apps Savvy", con tarjetas y un CTA por producto.
+Estos son los productos SaaS de Savvytrix Solutions. Deben tener una sección prominente en el sitio, tipo "nuestros productos" o "apps Savvy", con tarjetas y un CTA por producto.
 
 | App | Descripción | Estado |
 |-----|-------------|--------|
@@ -129,8 +129,8 @@ El CTA principal del sitio debe invitar a registrarse en la plataforma Savvy.
 
 Reemplaza las secciones de SavvyPOS con estas (puedes adaptar los componentes existentes):
 
-1. **Hero** — Headline impactante sobre Savvitrix Solutions + CTA principal ("Conoce nuestros productos" / "Habla con nosotros")
-2. **Propuesta de valor** — 3-4 bullets de por qué elegir Savvitrix (experiencia, innovación, soporte local, multi-industria)
+1. **Hero** — Headline impactante sobre Savvytrix Solutions + CTA principal ("Conoce nuestros productos" / "Habla con nosotros")
+2. **Propuesta de valor** — 3-4 bullets de por qué elegir Savvytrix (experiencia, innovación, soporte local, multi-industria)
 3. **Ecosistema Savvy** — Grid/cards de todos los productos Savvy (tabla de arriba)
 4. **Servicios** — Las 8 categorías de servicios con íconos y descripción breve
 5. **Cómo trabajamos** — Proceso: Consulta → Diseño → Desarrollo → Soporte (tipo how-it-works)
@@ -176,11 +176,11 @@ Reemplaza las secciones de SavvyPOS con estas (puedes adaptar los componentes ex
 - **Todo el contenido** de cada sección (hero copy, bullets, tarjetas, etc.)
 - `src/app/config.ts` — actualizar WhatsApp, URLs de apps Savvy, links de footer
 - `src/app/pages/home/` — la home que ensambla las secciones
-- `src/app/components/sections/` — todas las secciones (hero, pain, social-proof, etc. → nuevas secciones de Savvitrix)
+- `src/app/components/sections/` — todas las secciones (hero, pain, social-proof, etc. → nuevas secciones de Savvytrix)
 - `src/app/components/layout/navbar/` — logo + links de navegación (Productos, Servicios, Contacto)
 - `src/app/components/layout/footer/` — links de footer actualizados
 - `AI_STATE.md` — actualizar para reflejar el nuevo estado del proyecto
-- `README.md` — actualizar con info de Savvitrix Solutions
+- `README.md` — actualizar con info de Savvytrix Solutions
 
 ---
 
