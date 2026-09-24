@@ -1,0 +1,16 @@
+// Cloudflare Workers (static assets) — Savvytrix Solutions landing.
+// Every route is prerendered at build time (app.routes.server.ts → RenderMode.Prerender),
+// so only dist/savvy-landing/browser is deployed. The Express server (src/server.ts) is
+// not used in production; it remains for local `npm run serve:ssr:savvy-landing`.
+{
+  "name": "savvytrix-site",
+  "compatibility_date": "2026-09-01",
+  "assets": {
+    "directory": "./dist/savvy-landing/browser",
+    // /privacidad → privacidad/index.html without redirecting to /privacidad/ (matches sitemap)
+    "html_handling": "drop-trailing-slash",
+    // Unknown routes serve index.html; Angular's '**' route then redirects to home
+    "not_found_handling": "single-page-application"
+  },
+  "routes": [{ "pattern": "savvytrix.com", "custom_domain": true }]
+}

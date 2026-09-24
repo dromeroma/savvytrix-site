@@ -1,10 +1,14 @@
 # AI_STATE.md — Estado del Proyecto Savvytrix Solutions Landing
 
-> Última actualización: 2026-05-28
+> Última actualización: 2026-09-24
 
 ## Estado actual
 
 El sitio corporativo de **Savvytrix Solutions** está listo en su versión `1.0.0`. La transformación desde el landing original de SavvyPOS está completa: el hero, los CTAs, el ecosistema de productos Savvy, los servicios, el proceso, las industrias y la CTA final hablan ya de la empresa multi-producto, no del POS individual. Las páginas legales (`/privacidad`, `/terminos`) fueron reescritas para cubrir tanto el ecosistema SaaS como los servicios profesionales (desarrollo, IA, mecatrónica, consultoría).
+
+## Hosting
+
+Migrado de Vercel (bloqueado: 402 Payment Required) a **Cloudflare Workers con static assets** en `1.2.0`. Se despliega solo `dist/savvy-landing/browser` (todas las rutas prerenderizadas). Config: `wrangler.jsonc`, `public/_headers`, `.node-version`. Ver README → Despliegue.
 
 ## Stack técnico
 

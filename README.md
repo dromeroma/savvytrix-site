@@ -1,61 +1,42 @@
-# SavvyposLanding
+# Savvytrix Solutions — Sitio corporativo
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.8.
+Sitio web de [savvytrix.com](https://savvytrix.com). Angular 21 (standalone, zoneless) + Tailwind v4, con todas las rutas prerenderizadas en build (SSG).
 
-## Development server
-
-To start a local development server, run:
+## Desarrollo
 
 ```bash
-ng serve
+npm install
+npm start            # ng serve → http://localhost:10000
+npm run build        # build de producción → dist/savvy-landing/browser
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Despliegue — Cloudflare Workers (static assets)
 
-## Code scaffolding
+Todas las rutas (`/`, `/privacidad`, `/terminos`) se prerenderizan (`src/app/app.routes.server.ts`), así que en producción solo se sirve `dist/savvy-landing/browser`. **No hay servidor Node en producción**: `src/server.ts` (Express) queda solo para `npm run serve:ssr:savvy-landing` en local.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Archivos relevantes:
+
+| Archivo | Rol |
+|---|---|
+| `wrangler.jsonc` | Nombre del Worker, carpeta de assets, manejo de rutas, dominio `savvytrix.com` |
+| `public/_headers` | Headers de seguridad + caché inmutable para los bundles con hash |
+| `.node-version` | Node 22 en el build de Cloudflare |
+
+Comandos:
 
 ```bash
-ng generate component component-name
+npm run preview:cf   # build + wrangler dev (runtime de Cloudflare en local)
+npm run deploy       # build + wrangler deploy (requiere `npx wrangler login`)
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+### Git integration (Workers Builds)
 
-```bash
-ng generate --help
-```
+En Cloudflare → Workers & Pages → Create → Import a repository → `dromeroma/savvytrix-site`:
 
-## Building
+- **Build command:** `npm run build`
+- **Deploy command:** `npx wrangler deploy`
+- Rama de producción: `main`
 
-To build the project run:
+### Dominio
 
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
-
-## Release Notes
+La zona `savvytrix.com` ya usa DNS de Cloudflare. Antes del primer deploy hay que **borrar los registros `A` de `savvytrix.com` que apuntan a Vercel** (`216.198.79.65`, `64.29.17.65`); si no, Wrangler no puede crear el custom domain. **No tocar** `app.savvytrix.com` (es la app Savvy, otro servicio).
