@@ -18,10 +18,10 @@ export class NavbarComponent {
   mobileMenuOpen = signal(false);
 
   readonly navLinks = [
-    { label: 'Productos', href: '#productos' },
-    { label: 'Servicios', href: '#servicios' },
-    { label: 'Proceso', href: '#proceso' },
-    { label: 'Contacto', href: '#contacto' },
+    { label: 'Clientes', href: '/#clientes' },
+    { label: 'Precios', href: '/#precios' },
+    { label: 'Cómo trabajamos', href: '/#proceso' },
+    { label: 'Auditoría gratis', href: '/#auditoria' },
   ];
 
   constructor() {

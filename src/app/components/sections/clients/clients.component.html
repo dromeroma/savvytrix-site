@@ -1,0 +1,26 @@
+<app-section-wrapper sectionId="clientes">
+  <div class="text-center mb-12">
+    <p class="text-sm font-semibold uppercase tracking-widest text-[var(--color-accent)] mb-3">Clientes</p>
+    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--color-text)] leading-tight text-balance">
+      Negocios que ya venden en línea con nosotros.
+    </h2>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    @for (c of clients; track c.name) {
+      <a [href]="c.url" target="_blank" rel="noopener"
+        class="group block rounded-2xl border border-[var(--color-border)] bg-[var(--color-card-bg)] overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+        <div class="aspect-[16/10] overflow-hidden border-b border-[var(--color-border)]">
+          <img [src]="c.img" [alt]="'Sitio web de ' + c.name" width="960" height="600" loading="lazy"
+            class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]">
+        </div>
+        <div class="p-6">
+          <p class="text-xs font-medium text-[var(--color-text-muted)]">{{ c.kind }}</p>
+          <h3 class="mt-1 text-lg font-semibold text-[var(--color-text)]">{{ c.name }}</h3>
+          <p class="mt-2 text-sm text-[var(--color-text-muted)] leading-relaxed">{{ c.text }}</p>
+          <p class="mt-4 text-sm font-semibold text-[var(--color-accent)]">{{ c.host }} &rarr;</p>
+        </div>
+      </a>
+    }
+  </div>
+</app-section-wrapper>

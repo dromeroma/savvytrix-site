@@ -1,0 +1,28 @@
+<app-section-wrapper sectionId="auditoria">
+  <div class="mx-auto max-w-5xl rounded-3xl border border-[var(--color-border)] bg-[var(--color-card-bg)] p-8 sm:p-12">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+      <div>
+        <p class="text-sm font-semibold uppercase tracking-widest text-[var(--color-accent)] mb-3">Gratis</p>
+        <h2 class="text-3xl sm:text-4xl font-bold text-[var(--color-text)] leading-tight text-balance">
+          Auditoría de tu negocio en Google.
+        </h2>
+        <p class="mt-4 text-[var(--color-text-muted)] leading-relaxed">
+          Envíanos el nombre de tu negocio y tu ciudad. Te respondemos con 3 mejoras concretas
+          para que más clientes te encuentren. Sin costo y sin compromiso.
+        </p>
+        <a [href]="auditUrl" target="_blank" rel="noopener noreferrer"
+          class="mt-8 inline-flex items-center justify-center rounded-xl bg-[var(--color-accent)] px-6 py-3.5 font-semibold text-white hover:opacity-90 transition-opacity">
+          Pedir mi auditoría gratis
+        </a>
+      </div>
+      <ul class="space-y-4">
+        @for (c of checks; track c) {
+          <li class="flex items-start gap-3 rounded-xl border border-[var(--color-border)] px-5 py-4">
+            <svg class="w-5 h-5 mt-0.5 shrink-0 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+            <span class="text-[var(--color-text)]">{{ c }}</span>
+          </li>
+        }
+      </ul>
+    </div>
+  </div>
+</app-section-wrapper>

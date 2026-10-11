@@ -1,13 +1,12 @@
 import { Component } from '@angular/core';
 import { trigger, transition, style, animate, query, stagger } from '@angular/animations';
 import { ButtonComponent } from '../../ui/button/button.component';
-import { BadgeComponent } from '../../ui/badge/badge.component';
 import { CONTACT_WHATSAPP_URL } from '../../../config';
 
 @Component({
   selector: 'app-hero',
   standalone: true,
-  imports: [ButtonComponent, BadgeComponent],
+  imports: [ButtonComponent],
   templateUrl: './hero.component.html',
   animations: [
     trigger('heroEnter', [

@@ -61,15 +61,15 @@
 
   <g transform="translate(80, 240)">
     <text font-family="Inter, system-ui, sans-serif" font-size="62" font-weight="800" letter-spacing="-2">
-      <tspan x="0" y="0" fill="#ffffff">Transformamos ideas</tspan>
-      <tspan x="0" y="76" fill="#ffffff">en </tspan><tspan fill="url(#brand-gradient)">tecnología</tspan>
-      <tspan x="0" y="152" fill="url(#brand-gradient)">que funciona.</tspan>
+      <tspan x="0" y="0" fill="#ffffff">Tu negocio,</tspan>
+      <tspan x="0" y="76" fill="#ffffff">visible en Google</tspan>
+      <tspan x="0" y="152" fill="url(#brand-gradient)">y listo para vender.</tspan>
     </text>
   </g>
 
   <g transform="translate(80, 478)">
     <text font-family="Inter, system-ui, sans-serif" font-size="22" font-weight="500" fill="#D1FAE5" letter-spacing="0.2">
-      Software · IA · Mecatrónica · Ecosistema Savvy
+      Páginas web · Tiendas en línea · SEO local
     </text>
   </g>
 
@@ -81,11 +81,11 @@
     </g>
     <g transform="translate(206, 0)">
       <rect x="0" y="0" width="174" height="46" rx="23" fill="#ffffff" fill-opacity="0.08" stroke="#34D399" stroke-opacity="0.5" stroke-width="1.2"/>
-      <text x="20" y="30" font-size="15" font-weight="600" fill="#ffffff">10 apps Savvy</text>
+      <text x="20" y="30" font-size="15" font-weight="600" fill="#ffffff">Precios claros</text>
     </g>
     <g transform="translate(396, 0)">
-      <rect x="0" y="0" width="180" height="46" rx="23" fill="#ffffff" fill-opacity="0.08" stroke="#34D399" stroke-opacity="0.5" stroke-width="1.2"/>
-      <text x="20" y="30" font-size="15" font-weight="600" fill="#ffffff">Sede en LATAM</text>
+      <rect x="0" y="0" width="200" height="46" rx="23" fill="#ffffff" fill-opacity="0.08" stroke="#34D399" stroke-opacity="0.5" stroke-width="1.2"/>
+      <text x="20" y="30" font-size="15" font-weight="600" fill="#ffffff">Hecho en Colombia</text>
     </g>
   </g>
 

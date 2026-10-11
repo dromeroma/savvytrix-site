@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { APP_VERSION } from '../../../version';
-import { WHATSAPP_URL, SOCIAL_INSTAGRAM, SOCIAL_LINKEDIN, SOCIAL_TWITTER } from '../../../config';
+import { WHATSAPP_URL } from '../../../config';
 
 @Component({
   selector: 'app-footer',
@@ -14,30 +14,23 @@ export class FooterComponent {
   readonly currentYear = new Date().getFullYear();
 
   readonly productLinks = [
-    { label: 'SavvyPOS', href: '#productos' },
-    { label: 'SavvyAccounting', href: '#productos' },
-    { label: 'SavvyChurch', href: '#productos' },
-    { label: 'Ver todos', href: '#productos' },
+    { label: 'Páginas web', href: '/#precios' },
+    { label: 'Tiendas en línea', href: '/#precios' },
+    { label: 'SEO local', href: '/#precios' },
+    { label: 'SavvyPOS', href: 'https://savvypos.com/' },
   ];
 
   readonly serviceLinks = [
-    { label: 'Desarrollo de Software', href: '#servicios' },
-    { label: 'Inteligencia Artificial', href: '#servicios' },
-    { label: 'Mecatrónica', href: '#servicios' },
-    { label: 'Consultoría IT', href: '#servicios' },
+    { label: 'Clientes', href: '/#clientes' },
+    { label: 'Cómo trabajamos', href: '/#proceso' },
+    { label: 'Auditoría gratis', href: '/#auditoria' },
   ];
 
   readonly companyLinks = [
-    { label: 'Nosotros', href: '#' },
-    { label: 'Blog', href: '#' },
-    { label: 'Contacto', href: '#contacto' },
-    { label: 'Trabaja con nosotros', href: '#' },
+    { label: 'WhatsApp: 313 548 7605', href: WHATSAPP_URL },
   ];
 
   readonly socialLinks = [
-    { label: 'Instagram', href: SOCIAL_INSTAGRAM, icon: 'instagram' },
-    { label: 'LinkedIn', href: SOCIAL_LINKEDIN, icon: 'linkedin' },
-    { label: 'X', href: SOCIAL_TWITTER, icon: 'twitter' },
     { label: 'WhatsApp', href: WHATSAPP_URL, icon: 'whatsapp' },
   ];
 }

@@ -8,7 +8,7 @@
           <span><span class="text-white">Savvy</span><span class="text-[#059669]">trix</span></span>
         </a>
         <p class="text-gray-400 text-sm leading-relaxed max-w-sm mb-6">
-          Transformamos ideas en tecnología que funciona. Software, IA, mecatrónica y más — para empresas en Latinoamérica.
+          Páginas web, tiendas en línea y sistemas de venta para negocios en Colombia.
         </p>
         <!-- Social links -->
         <div class="flex gap-4">
@@ -41,11 +41,11 @@
 
       <!-- Productos -->
       <div>
-        <h4 class="text-xs font-semibold text-white uppercase tracking-wider mb-4">Productos</h4>
+        <h4 class="text-xs font-semibold text-white uppercase tracking-wider mb-4">Servicios</h4>
         <ul class="space-y-3">
           @for (link of productLinks; track link.label) {
             <li>
-              <a [href]="link.href" class="text-sm text-gray-400 hover:text-white transition-colors">{{ link.label }}</a>
+              <a [href]="link.href" [attr.target]="link.href.startsWith('http') ? '_blank' : null" [attr.rel]="link.href.startsWith('http') ? 'noopener' : null" class="text-sm text-gray-400 hover:text-white transition-colors">{{ link.label }}</a>
             </li>
           }
         </ul>
@@ -53,11 +53,11 @@
 
       <!-- Servicios -->
       <div>
-        <h4 class="text-xs font-semibold text-white uppercase tracking-wider mb-4">Servicios</h4>
+        <h4 class="text-xs font-semibold text-white uppercase tracking-wider mb-4">Savvytrix</h4>
         <ul class="space-y-3">
           @for (link of serviceLinks; track link.label) {
             <li>
-              <a [href]="link.href" class="text-sm text-gray-400 hover:text-white transition-colors">{{ link.label }}</a>
+              <a [href]="link.href" [attr.target]="link.href.startsWith('http') ? '_blank' : null" [attr.rel]="link.href.startsWith('http') ? 'noopener' : null" class="text-sm text-gray-400 hover:text-white transition-colors">{{ link.label }}</a>
             </li>
           }
         </ul>
@@ -65,11 +65,11 @@
 
       <!-- Empresa -->
       <div>
-        <h4 class="text-xs font-semibold text-white uppercase tracking-wider mb-4">Empresa</h4>
+        <h4 class="text-xs font-semibold text-white uppercase tracking-wider mb-4">Contacto</h4>
         <ul class="space-y-3">
           @for (link of companyLinks; track link.label) {
             <li>
-              <a [href]="link.href" class="text-sm text-gray-400 hover:text-white transition-colors">{{ link.label }}</a>
+              <a [href]="link.href" [attr.target]="link.href.startsWith('http') ? '_blank' : null" [attr.rel]="link.href.startsWith('http') ? 'noopener' : null" class="text-sm text-gray-400 hover:text-white transition-colors">{{ link.label }}</a>
             </li>
           }
         </ul>

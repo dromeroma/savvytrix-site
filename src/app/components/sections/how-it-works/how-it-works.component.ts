@@ -37,26 +37,20 @@ export class HowItWorksComponent {
   readonly steps: ProcessStep[] = [
     {
       number: '01',
-      title: 'Consulta inicial',
-      description: 'Nos cuentas tu idea, tu problema o tu necesidad. Analizamos viabilidad, alcance y te damos un plan claro sin compromisos.',
-      icon: 'message-circle',
+      title: 'Nos cuentas tu negocio',
+      description: 'Por WhatsApp o en una llamada. Te decimos qué necesitas y cuánto cuesta, sin rodeos.',
+      icon: 'message',
     },
     {
       number: '02',
-      title: 'Diseño y propuesta',
-      description: 'Diseñamos la arquitectura técnica, wireframes o prototipo. Definimos tecnologías, plazos y costos antes de escribir una línea de código.',
-      icon: 'pen-tool',
-    },
-    {
-      number: '03',
-      title: 'Desarrollo iterativo',
-      description: 'Construimos en sprints cortos con entregas frecuentes. Ves avance real cada semana y puedes ajustar sobre la marcha.',
+      title: 'Construimos tu sitio',
+      description: 'Con tu marca, tus productos y tus datos. Apruebas cada paso antes de publicarlo.',
       icon: 'code',
     },
     {
-      number: '04',
-      title: 'Entrega y soporte',
-      description: 'Desplegamos en producción, capacitamos a tu equipo y te acompañamos con soporte continuo. No desaparecemos al entregar.',
+      number: '03',
+      title: 'Te acompañamos cada mes',
+      description: 'Tu sitio no se queda quieto: lo actualizamos, lo cuidamos y trabajamos para que te encuentren en Google.',
       icon: 'rocket',
     },
   ];
