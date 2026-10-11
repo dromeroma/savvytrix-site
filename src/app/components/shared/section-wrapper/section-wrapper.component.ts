@@ -21,9 +21,11 @@ import { InViewDirective } from '../../../directives/in-view.directive';
       display: block;
     }
     .section-fade-in {
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .section-fade-in.fade-ready:not(.is-visible) {
       opacity: 0;
       transform: translateY(24px);
-      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
     }
     .section-fade-in.is-visible {
       opacity: 1;

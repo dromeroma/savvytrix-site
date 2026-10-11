@@ -12,5 +12,8 @@
     // Unknown routes serve index.html; Angular's '**' route then redirects to home
     "not_found_handling": "single-page-application"
   },
-  "routes": [{ "pattern": "savvytrix.com", "custom_domain": true }]
+  "routes": [
+    { "pattern": "savvytrix.com", "custom_domain": true },
+    { "pattern": "www.savvytrix.com", "custom_domain": true }
+  ]
 }

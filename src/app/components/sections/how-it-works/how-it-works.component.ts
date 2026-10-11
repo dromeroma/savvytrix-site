@@ -16,9 +16,11 @@ interface ProcessStep {
   templateUrl: './how-it-works.component.html',
   styles: `
     .step-item {
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .step-item.fade-ready:not(.is-visible) {
       opacity: 0;
       transform: translateY(40px);
-      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
     }
     .step-item.is-visible {
       opacity: 1;
@@ -76,44 +78,33 @@ export class HowItWorksComponent {
           }
         });
       },
-      { threshold: 0.15 }
+      { threshold: 0 }
     );
 
     const stepEls = container.querySelectorAll('.step-item');
-    stepEls.forEach((el: Element) => observer.observe(el));
+    stepEls.forEach((el: Element) => {
+      el.classList.add('fade-ready'); // solo se oculta si el navegador lo va a revelar
+      observer.observe(el);
+    });
 
     this.destroyRef.onDestroy(() => observer.disconnect());
   }
 
-  private async initProgressLine(): Promise<void> {
+  /** Línea de progreso: se llena al entrar la sección. Sin GSAP/ScrollTrigger: su refresh()
+   *  interrumpía el scroll hacia /#precios y otras anclas. */
+  private initProgressLine(): void {
     const container = this.stepsContainer()?.nativeElement;
-    if (!container) return;
-
-    const line = container.querySelector('.progress-line-fill');
-    if (!line) return;
-
-    const { gsap } = await import('gsap');
-    const { ScrollTrigger } = await import('gsap/ScrollTrigger');
-    gsap.registerPlugin(ScrollTrigger);
-
-    gsap.fromTo(
-      line,
-      { scaleY: 0 },
-      {
-        scaleY: 1,
-        scrollTrigger: {
-          trigger: container,
-          start: 'top 60%',
-          end: 'bottom 40%',
-          scrub: true,
-        },
+    const line = container?.querySelector('.progress-line-fill') as HTMLElement | null;
+    if (!container || !line) return;
+    line.style.transform = 'scaleY(0)';
+    line.style.transition = 'transform 1.2s ease-out';
+    const io = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        line.style.transform = 'scaleY(1)';
+        io.disconnect();
       }
-    );
-
-    requestAnimationFrame(() => ScrollTrigger.refresh());
-
-    this.destroyRef.onDestroy(() => {
-      ScrollTrigger.getAll().forEach((t) => t.kill());
-    });
+    }, { threshold: 0 });
+    io.observe(container);
+    this.destroyRef.onDestroy(() => io.disconnect());
   }
 }

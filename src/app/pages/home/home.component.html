@@ -1,27 +1,8 @@
+<!-- Todo se prerenderiza (sin @defer): los precios deben estar en el HTML inicial
+     para Google, vistas previas de WhatsApp y los enlaces /#precios. -->
 <app-hero />
-
-@defer (on viewport) {
-  <app-clients />
-} @placeholder {
-  <div id="clientes" class="py-20"></div>
-}
-
-@defer (on viewport) {
-  <app-plans />
-} @placeholder {
-  <div id="precios" class="py-20"></div>
-}
-
-@defer (on viewport) {
-  <app-how-it-works />
-} @placeholder {
-  <div id="proceso" class="py-20"></div>
-}
-
-@defer (on viewport) {
-  <app-audit />
-} @placeholder {
-  <div id="auditoria" class="py-20"></div>
-}
-
+<app-clients />
+<app-plans />
+<app-how-it-works />
+<app-audit />
 <app-final-cta />

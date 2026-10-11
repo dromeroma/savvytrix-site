@@ -4,7 +4,7 @@ import {
   provideZonelessChangeDetection
 } from '@angular/core';
 
-import { provideRouter } from '@angular/router';
+import { provideRouter, withInMemoryScrolling } from '@angular/router';
 import { routes } from './app.routes';
 
 import {
@@ -19,7 +19,8 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideZonelessChangeDetection(),
-    provideRouter(routes),
+    // Al llegar con /#precios (p. ej. desde /privacidad) baja a la sección ya hidratada.
+    provideRouter(routes, withInMemoryScrolling({ anchorScrolling: 'enabled' })),
     provideClientHydration(withEventReplay()),
     provideAnimations(),
     provideHttpClient(withFetch()),
