@@ -1,34 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://savvytrix.com/</loc>
-    <lastmod>2026-06-01</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="https://savvytrix.com/"/>
-    <xhtml:link rel="alternate" hreflang="es-CO" href="https://savvytrix.com/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://savvytrix.com/"/>
-    <image:image>
-      <image:loc>https://savvytrix.com/og-image.png</image:loc>
-      <image:title>Savvytrix Solutions — Transformamos ideas en tecnología que funciona</image:title>
-      <image:caption>Empresa de tecnología en Latinoamérica. Software, IA, mecatrónica y ecosistema Savvy.</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://savvytrix.com/logo.svg</image:loc>
-      <image:title>Savvytrix Solutions logo</image:title>
-    </image:image>
+  </url>
+  <url>
+    <loc>https://savvytrix.com/soluciones/tiendas-de-tecnologia</loc>
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://savvytrix.com/soluciones/ferreterias-y-materiales</loc>
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://savvytrix.com/soluciones/profesionales-y-servicios</loc>
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://savvytrix.com/soluciones/comercios-y-tiendas</loc>
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://savvytrix.com/privacidad</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://savvytrix.com/terminos</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>

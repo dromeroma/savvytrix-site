@@ -61,15 +61,15 @@
 
   <g transform="translate(80, 240)">
     <text font-family="Inter, system-ui, sans-serif" font-size="62" font-weight="800" letter-spacing="-2">
-      <tspan x="0" y="0" fill="#ffffff">Tu negocio,</tspan>
-      <tspan x="0" y="76" fill="#ffffff">visible en Google</tspan>
-      <tspan x="0" y="152" fill="url(#brand-gradient)">y listo para vender.</tspan>
+      <tspan x="0" y="0" fill="#ffffff">Más clientes,</tspan>
+      <tspan x="0" y="76" fill="#ffffff">más ventas y tu</tspan>
+      <tspan x="0" y="152" fill="url(#brand-gradient)">negocio en orden.</tspan>
     </text>
   </g>
 
   <g transform="translate(80, 478)">
     <text font-family="Inter, system-ui, sans-serif" font-size="22" font-weight="500" fill="#D1FAE5" letter-spacing="0.2">
-      Páginas web · Tiendas en línea · SEO local
+      Google · Tienda en línea · Sistema de ventas
     </text>
   </g>
 

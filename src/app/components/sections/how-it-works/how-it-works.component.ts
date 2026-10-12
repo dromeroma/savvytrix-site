@@ -45,8 +45,8 @@ export class HowItWorksComponent {
     },
     {
       number: '02',
-      title: 'Construimos tu sitio',
-      description: 'Con tu marca, tus productos y tus datos. Apruebas cada paso antes de publicarlo.',
+      title: 'Lo ponemos a funcionar',
+      description: 'Tu sitio, tu tienda o tu sistema con tu marca, tus productos y tus datos. Apruebas cada paso antes de publicarlo.',
       icon: 'code',
     },
     {

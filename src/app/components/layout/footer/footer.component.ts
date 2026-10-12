@@ -14,13 +14,15 @@ export class FooterComponent {
   readonly currentYear = new Date().getFullYear();
 
   readonly productLinks = [
-    { label: 'Páginas web', href: '/#planes' },
-    { label: 'Tiendas en línea', href: '/#planes' },
-    { label: 'SEO local', href: '/#planes' },
+    { label: 'Tiendas de tecnología', href: '/soluciones/tiendas-de-tecnologia' },
+    { label: 'Ferreterías y materiales', href: '/soluciones/ferreterias-y-materiales' },
+    { label: 'Profesionales y servicios', href: '/soluciones/profesionales-y-servicios' },
+    { label: 'Comercios y tiendas', href: '/soluciones/comercios-y-tiendas' },
     { label: 'SavvyPOS', href: 'https://savvypos.com/' },
   ];
 
   readonly serviceLinks = [
+    { label: 'Qué hacemos', href: '/#soluciones' },
     { label: 'Clientes', href: '/#clientes' },
     { label: 'Cómo trabajamos', href: '/#proceso' },
     { label: 'Cotizar', href: '/#cotizar' },

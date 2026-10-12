@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, OnInit, input, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { SectionWrapperComponent } from '../../shared/section-wrapper/section-wrapper.component';
 import { WHATSAPP_URL } from '../../../config';
@@ -13,7 +13,10 @@ import { WHATSAPP_URL } from '../../../config';
   imports: [SectionWrapperComponent, FormsModule],
   templateUrl: './contact.component.html',
 })
-export class ContactComponent {
+export class ContactComponent implements OnInit {
+  /** Opción de "¿Qué necesitas?" preseleccionada (páginas por nicho). */
+  readonly preset = input('');
+
   readonly needs = [
     'Página web para mi negocio',
     'Tienda en línea',
@@ -25,6 +28,11 @@ export class ContactComponent {
 
   form = { name: '', phone: '', business: '', need: this.needs[0], message: '', website: '' };
   readonly sending = signal(false);
+
+  ngOnInit(): void {
+    if (this.preset() && this.needs.includes(this.preset())) this.form.need = this.preset();
+  }
+
   readonly sent = signal(false);
   readonly error = signal('');
 

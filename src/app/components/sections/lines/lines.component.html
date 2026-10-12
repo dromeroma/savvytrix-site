@@ -1,0 +1,51 @@
+<app-section-wrapper sectionId="soluciones" extraClass="py-20 lg:py-28 bg-[var(--color-bg-alt)]">
+  <div class="text-center mb-12">
+    <p class="text-sm font-semibold uppercase tracking-widest text-[var(--color-accent)] mb-3">Qué hacemos</p>
+    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--color-text)] leading-tight text-balance">
+      Tres cosas que tu negocio necesita para crecer.
+    </h2>
+    <p class="mt-4 text-[var(--color-text-muted)] max-w-2xl mx-auto">
+      Empieza por la que más te urge. Cuando estés listo, sumas la siguiente.
+    </p>
+  </div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+    @for (line of lines; track line.id; let i = $index) {
+      <div class="flex flex-col rounded-2xl border border-[var(--color-border)] bg-[var(--color-card-bg)] p-7">
+        <span class="text-sm font-bold text-[var(--color-accent)]">0{{ i + 1 }} · {{ line.label }}</span>
+        <h3 class="mt-2 text-2xl font-bold text-[var(--color-text)]">{{ line.name }}</h3>
+        <p class="mt-3 text-sm text-[var(--color-text-muted)] leading-relaxed">{{ line.problem }}</p>
+        <ul class="mt-6 space-y-3 flex-1">
+          @for (f of line.includes; track f) {
+            <li class="flex items-start gap-2.5 text-sm text-[var(--color-text)]">
+              <svg class="w-4 h-4 mt-0.5 shrink-0 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              <span>{{ f }}</span>
+            </li>
+          }
+        </ul>
+        <p class="mt-6 rounded-xl bg-[var(--color-accent)]/10 px-4 py-3 text-sm font-semibold text-[var(--color-text)]">
+          Resultado: {{ line.result }}
+        </p>
+        <a [href]="quoteUrl(line.name)" target="_blank" rel="noopener noreferrer"
+          class="mt-5 inline-flex items-center justify-center rounded-xl bg-[var(--color-accent)] px-5 py-3 text-sm font-semibold text-white hover:opacity-90 transition-opacity">
+          Cotizar
+        </a>
+      </div>
+    }
+  </div>
+
+  <div class="mt-6 max-w-6xl mx-auto rounded-2xl border border-[var(--color-border)] bg-[var(--color-card-bg)] p-7 flex flex-col lg:flex-row lg:items-center gap-6">
+    <div class="lg:w-1/3">
+      <span class="text-sm font-bold text-[var(--color-accent)]">+ {{ brand.label }}</span>
+      <h3 class="mt-1 text-xl font-bold text-[var(--color-text)]">{{ brand.name }}</h3>
+    </div>
+    <ul class="grid flex-1 grid-cols-1 sm:grid-cols-2 gap-3">
+      @for (f of brand.includes; track f) {
+        <li class="flex items-start gap-2.5 text-sm text-[var(--color-text)]">
+          <svg class="w-4 h-4 mt-0.5 shrink-0 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+          <span>{{ f }}</span>
+        </li>
+      }
+    </ul>
+  </div>
+</app-section-wrapper>

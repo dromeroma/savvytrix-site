@@ -18,9 +18,9 @@ export class NavbarComponent {
   mobileMenuOpen = signal(false);
 
   readonly navLinks = [
+    { label: 'Soluciones', href: '/#soluciones' },
+    { label: 'Negocios', href: '/#negocios' },
     { label: 'Clientes', href: '/#clientes' },
-    { label: 'Planes', href: '/#planes' },
-    { label: 'Cómo trabajamos', href: '/#proceso' },
     { label: 'Cotizar', href: '/#cotizar' },
   ];
 
