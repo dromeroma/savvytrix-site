@@ -1,0 +1,29 @@
+<app-section-wrapper sectionId="problemas">
+  <div class="text-center mb-12">
+    <p class="text-sm font-semibold uppercase tracking-widest text-[var(--color-accent)] mb-3">¿Te pasa esto?</p>
+    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--color-text)] leading-tight text-balance">
+      Lo que frena tu negocio y cómo lo resolvemos.
+    </h2>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-5xl mx-auto">
+    @for (it of items; track it.problem) {
+      <div class="rounded-2xl border border-[var(--color-border)] bg-[var(--color-card-bg)] p-6">
+        <p class="flex items-start gap-3 text-[var(--color-text-muted)]">
+          <svg class="w-5 h-5 mt-0.5 shrink-0 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18 18 6M6 6l12 12"/></svg>
+          <span>{{ it.problem }}</span>
+        </p>
+        <p class="mt-4 flex items-start gap-3 font-semibold text-[var(--color-text)]">
+          <svg class="w-5 h-5 mt-0.5 shrink-0 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+          <span>{{ it.solution }}</span>
+        </p>
+      </div>
+    }
+  </div>
+
+  <div class="mt-10 text-center">
+    <a href="#cotizar" class="inline-flex items-center justify-center rounded-xl bg-[var(--color-accent)] px-6 py-3.5 font-semibold text-white hover:opacity-90 transition-opacity">
+      Quiero solucionarlo
+    </a>
+  </div>
+</app-section-wrapper>

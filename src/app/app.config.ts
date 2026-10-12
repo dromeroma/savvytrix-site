@@ -19,7 +19,7 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideZonelessChangeDetection(),
-    // Al llegar con /#precios (p. ej. desde /privacidad) baja a la sección ya hidratada.
+    // Al llegar con /#planes o /#cotizar (p. ej. desde /privacidad) baja a la sección ya hidratada.
     provideRouter(routes, withInMemoryScrolling({ anchorScrolling: 'enabled' })),
     provideClientHydration(withEventReplay()),
     provideAnimations(),

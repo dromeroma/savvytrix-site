@@ -19,9 +19,9 @@ export class NavbarComponent {
 
   readonly navLinks = [
     { label: 'Clientes', href: '/#clientes' },
-    { label: 'Precios', href: '/#precios' },
+    { label: 'Planes', href: '/#planes' },
     { label: 'Cómo trabajamos', href: '/#proceso' },
-    { label: 'Auditoría gratis', href: '/#auditoria' },
+    { label: 'Cotizar', href: '/#cotizar' },
   ];
 
   constructor() {

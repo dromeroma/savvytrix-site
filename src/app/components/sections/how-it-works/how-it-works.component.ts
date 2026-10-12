@@ -91,7 +91,7 @@ export class HowItWorksComponent {
   }
 
   /** Línea de progreso: se llena al entrar la sección. Sin GSAP/ScrollTrigger: su refresh()
-   *  interrumpía el scroll hacia /#precios y otras anclas. */
+   *  interrumpía el scroll hacia /#planes y otras anclas. */
   private initProgressLine(): void {
     const container = this.stepsContainer()?.nativeElement;
     const line = container?.querySelector('.progress-line-fill') as HTMLElement | null;

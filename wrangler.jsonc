@@ -5,13 +5,20 @@
 {
   "name": "savvytrix-site",
   "compatibility_date": "2026-09-01",
+  // Worker: /api/contacto (formulario → correo); el resto, archivos estáticos.
+  "main": "./worker/index.js",
   "assets": {
     "directory": "./dist/savvy-landing/browser",
+    "binding": "ASSETS",
+    "run_worker_first": ["/api/*"],
     // /privacidad → privacidad/index.html without redirecting to /privacidad/ (matches sitemap)
     "html_handling": "drop-trailing-slash",
     // Unknown routes serve index.html; Angular's '**' route then redirects to home
     "not_found_handling": "single-page-application"
   },
+  // Correo del formulario. El destino va en el secreto LEAD_TO (dirección verificada en
+  // Email Routing de la cuenta) para no dejar el correo escrito en el repositorio.
+  "send_email": [{ "name": "LEAD_MAIL" }],
   "routes": [
     { "pattern": "savvytrix.com", "custom_domain": true },
     { "pattern": "www.savvytrix.com", "custom_domain": true }

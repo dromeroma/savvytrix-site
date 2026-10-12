@@ -1,0 +1,92 @@
+<app-section-wrapper sectionId="cotizar" extraClass="py-20 lg:py-28 bg-[var(--color-bg-alt)]">
+  <div class="mx-auto grid max-w-6xl grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-14 items-start">
+    <div>
+      <p class="text-sm font-semibold uppercase tracking-widest text-[var(--color-accent)] mb-3">Cotiza sin compromiso</p>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--color-text)] leading-tight text-balance">
+        Cuéntanos qué necesitas y te enviamos tu cotización.
+      </h2>
+      <p class="mt-4 text-[var(--color-text-muted)] leading-relaxed">
+        Ajustamos la propuesta a tu negocio y a tu presupuesto. Si prefieres empezar por algo más
+        sencillo, también lo hacemos.
+      </p>
+      <ul class="mt-8 space-y-4">
+        <li class="flex items-start gap-3 text-[var(--color-text)]">
+          <svg class="w-5 h-5 mt-0.5 shrink-0 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+          <span>Te respondemos por WhatsApp con una propuesta clara.</span>
+        </li>
+        <li class="flex items-start gap-3 text-[var(--color-text)]">
+          <svg class="w-5 h-5 mt-0.5 shrink-0 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+          <span>Auditoría gratis de tu negocio en Google, si la pides.</span>
+        </li>
+        <li class="flex items-start gap-3 text-[var(--color-text)]">
+          <svg class="w-5 h-5 mt-0.5 shrink-0 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+          <span>Sin letra pequeña: sabes qué incluye antes de empezar.</span>
+        </li>
+      </ul>
+      <a [href]="waUrl" target="_blank" rel="noopener noreferrer"
+        class="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-accent)] hover:underline">
+        ¿Prefieres escribir directo? WhatsApp 313 548 7605 &rarr;
+      </a>
+    </div>
+
+    <div class="rounded-3xl border border-[var(--color-border)] bg-[var(--color-card-bg)] p-6 sm:p-8">
+      @if (sent()) {
+        <div class="py-10 text-center">
+          <div class="mx-auto grid h-14 w-14 place-items-center rounded-full bg-[var(--color-accent)]/15 text-[var(--color-accent)]">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>
+          </div>
+          <h3 class="mt-5 text-xl font-bold text-[var(--color-text)]">¡Gracias, {{ form.name.split(' ')[0] }}!</h3>
+          <p class="mt-2 text-[var(--color-text-muted)]">Recibimos tu solicitud. Te escribimos pronto por WhatsApp.</p>
+          <a [href]="waUrl" target="_blank" rel="noopener noreferrer"
+            class="mt-6 inline-flex items-center justify-center rounded-xl border border-[var(--color-border)] px-5 py-3 text-sm font-semibold text-[var(--color-text)] hover:border-[var(--color-accent)]">
+            Adelantar la conversación por WhatsApp
+          </a>
+        </div>
+      } @else {
+        <form (ngSubmit)="submit()" class="space-y-4" novalidate>
+          <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <label class="block">
+              <span class="text-sm font-medium text-[var(--color-text)]">Nombre *</span>
+              <input [(ngModel)]="form.name" name="name" required autocomplete="name" placeholder="Tu nombre"
+                class="mt-1.5 h-12 w-full rounded-xl border border-[var(--color-border)] bg-[var(--color-bg)] px-4 text-[var(--color-text)] outline-none focus:border-[var(--color-accent)]" />
+            </label>
+            <label class="block">
+              <span class="text-sm font-medium text-[var(--color-text)]">WhatsApp o teléfono *</span>
+              <input [(ngModel)]="form.phone" name="phone" required type="tel" autocomplete="tel" placeholder="300 000 0000"
+                class="mt-1.5 h-12 w-full rounded-xl border border-[var(--color-border)] bg-[var(--color-bg)] px-4 text-[var(--color-text)] outline-none focus:border-[var(--color-accent)]" />
+            </label>
+          </div>
+          <label class="block">
+            <span class="text-sm font-medium text-[var(--color-text)]">Negocio y ciudad</span>
+            <input [(ngModel)]="form.business" name="business" placeholder="Ej.: Ferretería El Puerto, Montería"
+              class="mt-1.5 h-12 w-full rounded-xl border border-[var(--color-border)] bg-[var(--color-bg)] px-4 text-[var(--color-text)] outline-none focus:border-[var(--color-accent)]" />
+          </label>
+          <label class="block">
+            <span class="text-sm font-medium text-[var(--color-text)]">¿Qué necesitas?</span>
+            <select [(ngModel)]="form.need" name="need"
+              class="mt-1.5 h-12 w-full rounded-xl border border-[var(--color-border)] bg-[var(--color-bg)] px-4 text-[var(--color-text)] outline-none focus:border-[var(--color-accent)]">
+              @for (n of needs; track n) { <option [value]="n">{{ n }}</option> }
+            </select>
+          </label>
+          <label class="block">
+            <span class="text-sm font-medium text-[var(--color-text)]">Cuéntanos un poco más</span>
+            <textarea [(ngModel)]="form.message" name="message" rows="3" placeholder="Qué vendes, a quién y qué te gustaría lograr"
+              class="mt-1.5 w-full rounded-xl border border-[var(--color-border)] bg-[var(--color-bg)] px-4 py-3 text-[var(--color-text)] outline-none focus:border-[var(--color-accent)]"></textarea>
+          </label>
+          <!-- campo trampa para robots -->
+          <input [(ngModel)]="form.website" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" class="hidden" />
+
+          @if (error()) {
+            <p class="rounded-xl bg-red-500/10 px-4 py-3 text-sm text-red-500">{{ error() }}</p>
+          }
+
+          <button type="submit" [disabled]="sending()"
+            class="w-full rounded-xl bg-[var(--color-accent)] px-6 py-3.5 font-semibold text-white hover:opacity-90 transition-opacity disabled:opacity-60">
+            {{ sending() ? 'Enviando…' : 'Quiero mi cotización' }}
+          </button>
+          <p class="text-center text-xs text-[var(--color-text-muted)]">Usamos tus datos solo para responderte.</p>
+        </form>
+      }
+    </div>
+  </div>
+</app-section-wrapper>

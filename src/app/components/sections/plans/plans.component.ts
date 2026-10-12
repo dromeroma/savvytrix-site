@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { SectionWrapperComponent } from '../../shared/section-wrapper/section-wrapper.component';
 import { WHATSAPP_URL } from '../../../config';
 
-/** Precios "desde" de Savvy Sites (precio de lista; ver estrategia de precios). */
+/** Planes de Savvy Sites SIN precio público: cada uno se cotiza por WhatsApp (permite ajustar alcance y precio). */
 @Component({
   selector: 'app-plans',
   standalone: true,
@@ -14,8 +14,6 @@ export class PlansComponent {
     {
       name: 'Esencial',
       text: 'Para empezar a recibir clientes por internet.',
-      setup: '$2.400.000',
-      monthly: '$130.000',
       featured: false,
       features: [
         'Sitio con tu marca, servicios o catálogo',
@@ -27,8 +25,6 @@ export class PlansComponent {
     {
       name: 'Profesional',
       text: 'Para aparecer en Google en tu ciudad.',
-      setup: '$3.600.000',
-      monthly: '$170.000',
       featured: true,
       features: [
         'Todo lo del plan Esencial',
@@ -40,8 +36,6 @@ export class PlansComponent {
     {
       name: 'A medida',
       text: 'Para tiendas en línea y funciones especiales.',
-      setup: '$5.500.000',
-      monthly: '$220.000',
       featured: false,
       features: [
         'Diseño exclusivo para tu marca',
@@ -53,6 +47,6 @@ export class PlansComponent {
   ];
 
   quoteUrl(plan: string): string {
-    return `${WHATSAPP_URL}?text=${encodeURIComponent(`Hola, me interesa el plan ${plan} de Savvytrix para mi negocio.`)}`;
+    return `${WHATSAPP_URL}?text=${encodeURIComponent(`Hola, quiero cotizar el plan ${plan} de Savvytrix para mi negocio.`)}`;
   }
 }

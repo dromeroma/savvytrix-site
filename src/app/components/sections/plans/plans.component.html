@@ -1,11 +1,11 @@
-<app-section-wrapper sectionId="precios" extraClass="py-20 lg:py-28 bg-[var(--color-bg-alt)]">
+<app-section-wrapper sectionId="planes" extraClass="py-20 lg:py-28 bg-[var(--color-bg-alt)]">
   <div class="text-center mb-12">
-    <p class="text-sm font-semibold uppercase tracking-widest text-[var(--color-accent)] mb-3">Precios</p>
+    <p class="text-sm font-semibold uppercase tracking-widest text-[var(--color-accent)] mb-3">Planes</p>
     <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--color-text)] leading-tight text-balance">
-      Precios claros desde el primer mensaje.
+      Un plan para cada etapa de tu negocio.
     </h2>
     <p class="mt-4 text-[var(--color-text-muted)] max-w-xl mx-auto">
-      Un pago por crear tu sitio y una mensualidad que incluye alojamiento, soporte y actualizaciones.
+      Te cotizamos según lo que necesitas: sin pagar por lo que no vas a usar. Incluye alojamiento, soporte y actualizaciones.
     </p>
   </div>
 
@@ -14,16 +14,10 @@
       <div class="relative flex flex-col rounded-2xl border bg-[var(--color-card-bg)] p-7"
         [class]="plan.featured ? 'border-[var(--color-accent)] shadow-lg' : 'border-[var(--color-border)]'">
         @if (plan.featured) {
-          <span class="absolute -top-3 left-7 rounded-full bg-[var(--color-accent)] px-3 py-1 text-xs font-semibold text-white">El más pedido</span>
+          <span class="absolute -top-3 left-7 rounded-full bg-[var(--color-accent)] px-3 py-1 text-xs font-semibold text-white">Recomendado</span>
         }
         <h3 class="text-xl font-bold text-[var(--color-text)]">{{ plan.name }}</h3>
         <p class="mt-1 text-sm text-[var(--color-text-muted)]">{{ plan.text }}</p>
-
-        <div class="mt-6">
-          <p class="text-xs text-[var(--color-text-muted)]">Desde</p>
-          <p class="text-3xl font-bold text-[var(--color-text)]">{{ plan.setup }}</p>
-          <p class="mt-1 text-sm text-[var(--color-text-muted)]">+ desde {{ plan.monthly }} al mes</p>
-        </div>
 
         <ul class="mt-6 space-y-3 flex-1">
           @for (f of plan.features; track f) {
@@ -37,7 +31,7 @@
         <a [href]="quoteUrl(plan.name)" target="_blank" rel="noopener noreferrer"
           class="mt-8 inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold transition-colors"
           [class]="plan.featured ? 'bg-[var(--color-accent)] text-white hover:opacity-90' : 'border border-[var(--color-border)] text-[var(--color-text)] hover:border-[var(--color-accent)]'">
-          Cotizar por WhatsApp
+          Cotizar este plan
         </a>
       </div>
     }
@@ -46,7 +40,7 @@
   <a href="https://savvypos.com/" target="_blank" rel="noopener"
     class="mt-8 max-w-6xl mx-auto flex flex-col sm:flex-row sm:items-center justify-between gap-3 rounded-2xl border border-[var(--color-border)] bg-[var(--color-card-bg)] px-7 py-5 hover:border-[var(--color-accent)] transition-colors">
     <span class="text-sm text-[var(--color-text)]">
-      <strong>¿Tienes tienda física?</strong> SavvyPOS, el sistema para vender, llevar inventario y fiado, desde $49.900 al mes con 30 días gratis.
+      <strong>¿Tienes tienda física?</strong> SavvyPOS, el sistema para vender, llevar inventario y fiado. Pruébalo 30 días gratis.
     </span>
     <span class="text-sm font-semibold text-[var(--color-accent)] shrink-0">savvypos.com &rarr;</span>
   </a>

@@ -81,7 +81,7 @@
     </g>
     <g transform="translate(206, 0)">
       <rect x="0" y="0" width="174" height="46" rx="23" fill="#ffffff" fill-opacity="0.08" stroke="#34D399" stroke-opacity="0.5" stroke-width="1.2"/>
-      <text x="20" y="30" font-size="15" font-weight="600" fill="#ffffff">Precios claros</text>
+      <text x="20" y="30" font-size="15" font-weight="600" fill="#ffffff">Cotiza gratis</text>
     </g>
     <g transform="translate(396, 0)">
       <rect x="0" y="0" width="200" height="46" rx="23" fill="#ffffff" fill-opacity="0.08" stroke="#34D399" stroke-opacity="0.5" stroke-width="1.2"/>
