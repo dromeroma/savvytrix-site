@@ -1,7 +1,8 @@
 /**
  * Oferta comercial de Savvytrix: 3 líneas + Marca, y soluciones por nicho.
  * Fuente única para el inicio, las páginas /soluciones/* y los PDF de ventas.
- * REGLA: solo lo que ya existe y funciona; cifras solo si son verificables.
+ * REGLA: solo lo que ya existe y funciona. De los clientes NO se publican datos ni cifras
+ *        (son privados): solo que son clientes y lo que se ve en su sitio público.
  */
 
 export interface Line {
@@ -111,6 +112,7 @@ export const HOME_FAQS = [
   { q: '¿Qué tengo que entregar?', a: 'Tu logo (si no tienes, te lo hacemos), fotos de tu negocio o productos, y la lista de lo que vendes con precios. Puede ser un Excel o fotos por WhatsApp.' },
   { q: '¿Puedo hacer cambios yo mismo?', a: 'Sí. Te entregamos un panel para cambiar precios, productos, fotos y promociones desde el celular o el computador. Y si prefieres, nos escribes y lo hacemos por ti.' },
   { q: '¿Atienden fuera de Cartagena?', a: 'Sí. Trabajamos por WhatsApp y llamadas con negocios de todo Colombia.' },
+  { q: '¿El dominio es mío?', a: 'El dominio se registra con el nombre de tu negocio que tú elijas. Nosotros lo gestionamos por ti (configuración y renovación) para que no te preocupes. Si prefieres administrarlo tú, lo acordamos desde el inicio.' },
   { q: 'Ya tengo página web, ¿me sirve?', a: 'La revisamos gratis y te decimos si conviene mejorarla o hacerla nueva. Si cambias, nos encargamos de pasar tu dominio y tus correos.' },
   { q: '¿Qué pasa si dejo de pagar la mensualidad?', a: 'La mensualidad mantiene tu sitio en línea, con soporte y cambios. Si se deja de pagar, el sitio se pausa hasta que te pongas al día.' },
 ];
@@ -156,7 +158,7 @@ export const NICHES: Niche[] = [
     caseStudy: {
       client: 'Yes Computo',
       place: 'Cartagena',
-      text: 'Más de 100 productos en 13 categorías que ellos mismos administran, promociones en portada y seguimiento de servicio técnico.',
+      text: 'Su tienda en línea: catálogo de tecnología por categorías, promociones en portada y pedidos por WhatsApp.',
       url: 'https://yescomputo.com/',
       host: 'yescomputo.com',
       img: 'clients/yescomputo.webp',
