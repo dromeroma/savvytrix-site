@@ -15,7 +15,7 @@ import { MONTHLY } from '../../../data/solutions';
           Tú atiendes tu negocio. Nosotros cuidamos tu presencia en internet.
         </h2>
         <p class="mt-4 text-[var(--color-text-muted)] max-w-2xl mx-auto">
-          Tu mensualidad no es solo alojamiento: cada mes recibes trabajo que se nota.
+          Esto cubre tu mensualidad. Si quieres algo extra, como una campaña especial o una función nueva, te lo cotizamos aparte y sin sorpresas.
         </p>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-6xl mx-auto">

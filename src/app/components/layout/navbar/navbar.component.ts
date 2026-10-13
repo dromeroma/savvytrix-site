@@ -20,7 +20,8 @@ export class NavbarComponent {
   readonly navLinks = [
     { label: 'Soluciones', href: '/#soluciones' },
     { label: 'Negocios', href: '/#negocios' },
-    { label: 'Clientes', href: '/#clientes' },
+    { label: 'Cómo funciona', href: '/#proceso' },
+    { label: 'Preguntas', href: '/#preguntas' },
     { label: 'Cotizar', href: '/#cotizar' },
   ];
 

@@ -24,7 +24,7 @@ export const LINES: Line[] = [
       'Sitio web profesional, rápido en el celular',
       'Perfil de Empresa en Google y Google Maps',
       'Páginas por ciudad o zona para aparecer en tu región',
-      'Guías que responden lo que tus clientes buscan',
+      'Artículos que responden lo que tus clientes buscan en Google',
       'Formulario y WhatsApp que llegan a tu correo y celular',
     ],
     result: 'Clientes nuevos que te llaman y te escriben.',
@@ -40,7 +40,7 @@ export const LINES: Line[] = [
       'Pedidos por WhatsApp con código de pedido',
       'Promociones, campañas de temporada e historias en video',
       'Resultados: visitas, productos más vistos y pedidos',
-      'Google Analytics y Pixel de Meta listos para pauta',
+      'Listo para anunciarte en Facebook, Instagram y Google',
     ],
     result: 'Pedidos claros, sin perder tiempo respondiendo lo mismo.',
     billing: 'Creación + mensualidad',
@@ -66,7 +66,7 @@ export const BRAND_LINE = {
   name: 'Que te vean profesional',
   label: 'Marca',
   includes: [
-    'Logo vectorizado, listo para avisos e impresión',
+    'Logo en alta calidad, listo para avisos e impresión',
     'Tarjeta de presentación digital y para imprimir',
     'Presentación comercial para tus clientes',
     'Tus redes sociales conectadas a tu sitio',
@@ -74,14 +74,45 @@ export const BRAND_LINE = {
   billing: 'Pago único',
 };
 
-/** Lo que el cliente recibe cada mes (la razón para quedarse). */
+/** Lo que cubre la mensualidad. Solo lo que cabe en el precio mensual (ver estrategia de precios):
+ *  campañas especiales y contenido nuevo se cotizan aparte. */
 export const MONTHLY = [
-  { title: 'Una campaña al mes', text: 'Día de la Madre, Mundial, Navidad… tu sitio se viste para vender en cada temporada.' },
+  { title: 'Tu sitio siempre en línea', text: 'Alojamiento, dominio y certificado de seguridad (el candado) al día.' },
+  { title: 'Cambios del día a día', text: 'Precios, productos, fotos y textos: nos escribes y lo actualizamos.' },
+  { title: 'Promociones de temporada', text: 'Cambiamos tu portada y tus promociones para las fechas que te importan.' },
   { title: 'Informe de resultados', text: 'Visitas, productos más vistos y pedidos: sabes qué está funcionando.' },
-  { title: 'Cambios incluidos', text: 'Precios, productos, fotos y textos: nos escribes y lo actualizamos.' },
-  { title: 'Mejoras para Google', text: 'Ajustes y contenido nuevo para que te sigan encontrando.' },
-  { title: 'Alojamiento y seguridad', text: 'Tu sitio en línea, rápido y con certificado de seguridad.' },
-  { title: 'Soporte por WhatsApp', text: 'Te atiende una persona que conoce tu negocio.' },
+  { title: 'Revisión de tu Google', text: 'Cuidamos tu Perfil de Empresa y que tu sitio siga apareciendo bien.' },
+  { title: 'Soporte por WhatsApp', text: 'Te atiende una persona que conoce tu negocio, no un robot.' },
+];
+
+/** Qué pasa después de aceptar la cotización. */
+export const ONBOARDING = [
+  { title: 'Cotización por escrito', text: 'Qué incluye, cuánto cuesta la creación y cuánto la mensualidad. Sin sorpresas.' },
+  { title: 'Nos envías tu información', text: 'Logo, fotos y tus productos o servicios con precios. Un Excel o fotos por WhatsApp sirven.' },
+  { title: 'Diseñamos y tú apruebas', text: 'Te mostramos el avance y ajustamos hasta que te guste. Nada se publica sin tu visto bueno.' },
+  { title: 'Publicamos', text: 'En tu dominio, con candado de seguridad, conectado a Google y a tu WhatsApp.' },
+  { title: 'Te enseñamos a usarlo', text: 'En una llamada aprendes a cambiar precios, productos y fotos desde tu panel.' },
+  { title: 'Te acompañamos cada mes', text: 'Cambios, informe de resultados y soporte por WhatsApp mientras tengas tu plan.' },
+];
+
+/** Lo que el cliente tiene al terminar (según lo contratado). */
+export const DELIVERABLES = [
+  'Tu dominio (tunegocio.com o .com.co)',
+  'Correos con el nombre de tu negocio',
+  'Sitio o tienda publicada y segura',
+  'Panel para administrarla tú mismo',
+  'Perfil de Empresa en Google configurado',
+  'Acceso a tus resultados',
+];
+
+export const HOME_FAQS = [
+  { q: '¿Cuánto cuesta?', a: 'Depende de lo que necesites. Pagas la creación una sola vez y después una mensualidad. Antes de empezar te enviamos el valor exacto por escrito; si tu presupuesto es corto, arrancamos por lo esencial y crecemos contigo.' },
+  { q: '¿Cuánto tarda?', a: 'Un sitio estándar suele quedar listo en 1 a 3 semanas. Una tienda con un catálogo grande puede tomar más. También depende de qué tan rápido nos envíes tu información.' },
+  { q: '¿Qué tengo que entregar?', a: 'Tu logo (si no tienes, te lo hacemos), fotos de tu negocio o productos, y la lista de lo que vendes con precios. Puede ser un Excel o fotos por WhatsApp.' },
+  { q: '¿Puedo hacer cambios yo mismo?', a: 'Sí. Te entregamos un panel para cambiar precios, productos, fotos y promociones desde el celular o el computador. Y si prefieres, nos escribes y lo hacemos por ti.' },
+  { q: '¿Atienden fuera de Cartagena?', a: 'Sí. Trabajamos por WhatsApp y llamadas con negocios de todo Colombia.' },
+  { q: 'Ya tengo página web, ¿me sirve?', a: 'La revisamos gratis y te decimos si conviene mejorarla o hacerla nueva. Si cambias, nos encargamos de pasar tu dominio y tus correos.' },
+  { q: '¿Qué pasa si dejo de pagar la mensualidad?', a: 'La mensualidad mantiene tu sitio en línea, con soporte y cambios. Si se deja de pagar, el sitio se pausa hasta que te pongas al día.' },
 ];
 
 export interface Niche {

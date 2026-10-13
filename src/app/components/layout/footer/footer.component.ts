@@ -24,7 +24,9 @@ export class FooterComponent {
   readonly serviceLinks = [
     { label: 'Qué hacemos', href: '/#soluciones' },
     { label: 'Clientes', href: '/#clientes' },
-    { label: 'Cómo trabajamos', href: '/#proceso' },
+    { label: 'Cómo funciona', href: '/#proceso' },
+    { label: 'Preguntas frecuentes', href: '/#preguntas' },
+    { label: 'Quiénes somos', href: '/#nosotros' },
     { label: 'Cotizar', href: '/#cotizar' },
   ];
 
