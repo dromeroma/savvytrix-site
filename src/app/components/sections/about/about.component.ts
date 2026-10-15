@@ -37,7 +37,7 @@ export class AboutComponent {
   readonly points = [
     { title: 'Tecnología propia', text: 'Savvy Sites y SavvyPOS son nuestros: los mejoramos con lo que piden los clientes.' },
     { title: 'Soporte directo', text: 'Por WhatsApp, con personas que conocen tu negocio.' },
-    { title: 'Clientes reales', text: 'Negocios en Cartagena y San Onofre ya venden con nuestras plataformas.' },
+    { title: 'Clientes reales', text: 'Tiendas, empresas de internet y negocios en Cartagena, San Onofre y Córdoba ya trabajan con nosotros.' },
     { title: 'Todo Colombia', text: 'Trabajamos a distancia con negocios de cualquier ciudad.' },
   ];
 }

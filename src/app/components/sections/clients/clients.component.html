@@ -1,13 +1,35 @@
 <app-section-wrapper sectionId="clientes">
-  <div class="text-center mb-12">
-    <p class="text-sm font-semibold uppercase tracking-widest text-[var(--color-accent)] mb-3">Clientes</p>
+  <div class="text-center mb-10">
+    <p class="text-sm font-semibold uppercase tracking-widest text-[var(--color-accent)] mb-3">Clientes y proyectos</p>
     <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--color-text)] leading-tight text-balance">
-      Negocios que ya venden en línea con nosotros.
+      Proyectos reales, funcionando hoy.
     </h2>
+    <p class="mt-4 max-w-2xl mx-auto text-base sm:text-lg text-[var(--color-text-muted)] text-balance">
+      Tiendas en línea, páginas para empresas y software propio. Entra y míralos en vivo.
+    </p>
   </div>
 
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-    @for (c of clients; track c.name) {
+  <div class="flex flex-wrap justify-center gap-2 mb-10" role="tablist" aria-label="Filtrar proyectos por tipo">
+    <button type="button" role="tab" [attr.aria-selected]="active() === 'todos'" (click)="active.set('todos')"
+      class="rounded-full border px-4 py-2 text-sm font-medium transition-colors"
+      [class]="active() === 'todos'
+        ? 'border-[var(--color-accent)] bg-[var(--color-accent)] text-white'
+        : 'border-[var(--color-border)] text-[var(--color-text-muted)] hover:text-[var(--color-text)] hover:border-[var(--color-text-muted)]'">
+      Todos <span class="ml-1 opacity-70">{{ total }}</span>
+    </button>
+    @for (t of tabs; track t.id) {
+      <button type="button" role="tab" [attr.aria-selected]="active() === t.id" (click)="active.set(t.id)"
+        class="rounded-full border px-4 py-2 text-sm font-medium transition-colors"
+        [class]="active() === t.id
+          ? 'border-[var(--color-accent)] bg-[var(--color-accent)] text-white'
+          : 'border-[var(--color-border)] text-[var(--color-text-muted)] hover:text-[var(--color-text)] hover:border-[var(--color-text-muted)]'">
+        {{ t.label }} <span class="ml-1 opacity-70">{{ t.count }}</span>
+      </button>
+    }
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    @for (c of shown(); track c.name) {
       <a [href]="c.url" target="_blank" rel="noopener"
         class="group block rounded-2xl border border-[var(--color-border)] bg-[var(--color-card-bg)] overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
         <div class="aspect-[16/10] overflow-hidden border-b border-[var(--color-border)]">
@@ -15,7 +37,10 @@
             class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]">
         </div>
         <div class="p-6">
-          <p class="text-xs font-medium text-[var(--color-text-muted)]">{{ c.kind }}</p>
+          <div class="flex items-center justify-between gap-3">
+            <p class="text-xs font-medium text-[var(--color-text-muted)]">{{ c.kind }}</p>
+            <span class="shrink-0 rounded-full border border-[var(--color-border)] px-2.5 py-0.5 text-[11px] font-semibold text-[var(--color-accent)]">{{ labelOf(c.category) }}</span>
+          </div>
           <h3 class="mt-1 text-lg font-semibold text-[var(--color-text)]">{{ c.name }}</h3>
           <p class="mt-2 text-sm text-[var(--color-text-muted)] leading-relaxed">{{ c.text }}</p>
           <p class="mt-4 text-sm font-semibold text-[var(--color-accent)]">{{ c.host }} &rarr;</p>
