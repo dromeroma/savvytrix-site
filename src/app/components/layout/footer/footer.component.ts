@@ -23,11 +23,13 @@ export class FooterComponent {
     { label: 'Profesionales y servicios', href: '/soluciones/profesionales-y-servicios' },
     { label: 'Empresas de internet', href: '/soluciones/empresas-de-internet' },
     { label: 'Software para negocios', href: '/soluciones/software-para-negocios' },
+    { label: 'SavvyPOS', href: 'https://savvypos.com/' },
   ];
 
   readonly serviceLinks = [
     { label: 'Qué hacemos', href: '/#soluciones' },
     { label: 'Clientes', href: '/#clientes' },
+    { label: 'Desarrollos propios', href: '/#desarrollos' },
     { label: 'Cómo funciona', href: '/#proceso' },
     { label: 'Preguntas frecuentes', href: '/#preguntas' },
     { label: 'Quiénes somos', href: '/#nosotros' },

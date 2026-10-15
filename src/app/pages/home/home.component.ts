@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HeroComponent } from '../../components/sections/hero/hero.component';
 import { ClientsComponent } from '../../components/sections/clients/clients.component';
+import { ProductsComponent } from '../../components/sections/products/products.component';
 import { LinesComponent } from '../../components/sections/lines/lines.component';
 import { NichesComponent } from '../../components/sections/niches/niches.component';
 import { MonthlyComponent } from '../../components/sections/monthly/monthly.component';
@@ -14,7 +15,7 @@ import { FinalCtaComponent } from '../../components/sections/final-cta/final-cta
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [HeroComponent, ProblemsComponent, LinesComponent, NichesComponent, ClientsComponent, MonthlyComponent, OnboardingComponent, AboutComponent, FaqComponent, ContactComponent, FinalCtaComponent],
+  imports: [HeroComponent, ProblemsComponent, LinesComponent, NichesComponent, ClientsComponent, ProductsComponent, MonthlyComponent, OnboardingComponent, AboutComponent, FaqComponent, ContactComponent, FinalCtaComponent],
   templateUrl: './home.component.html',
 })
 export class HomeComponent {}

@@ -95,6 +95,15 @@ export class ClientsComponent {
       img: 'clients/fibratek.webp',
     },
     {
+      name: 'Cliu',
+      category: 'empresariales',
+      kind: 'Lavandería industrial · Apartadó',
+      text: 'Página empresarial con servicios, portal de clientes, vacantes y solicitud de servicio por WhatsApp.',
+      url: 'https://cliu.com.co/',
+      host: 'cliu.com.co',
+      img: 'clients/cliu.webp',
+    },
+    {
       name: 'JEK Ingeniería',
       category: 'profesionales',
       kind: 'Ingeniería estructural · La Ceja',

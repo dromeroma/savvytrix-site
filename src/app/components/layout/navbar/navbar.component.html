@@ -21,11 +21,11 @@
       </a>
 
       <!-- Desktop nav -->
-      <div class="hidden lg:flex items-center gap-8">
+      <div class="hidden lg:flex items-center gap-6 xl:gap-8">
         @for (link of navLinks; track link.href) {
           <a
             [href]="link.href"
-            class="text-sm font-medium text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors"
+            class="whitespace-nowrap text-sm font-medium text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors"
           >
             {{ link.label }}
           </a>
