@@ -22,6 +22,7 @@ export class ContactComponent implements OnInit {
     'Tienda en línea',
     'Aparecer en Google en mi ciudad',
     'Sistema de ventas (SavvyPOS)',
+    'Software o sistema a la medida',
     'Auditoría gratis de mi negocio en Google',
     'Algo más sencillo / otro',
   ];

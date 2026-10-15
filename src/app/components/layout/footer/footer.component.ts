@@ -15,10 +15,14 @@ export class FooterComponent {
 
   readonly productLinks = [
     { label: 'Tiendas de tecnología', href: '/soluciones/tiendas-de-tecnologia' },
+    { label: 'Electrodomésticos y sonido', href: '/soluciones/electrodomesticos-y-sonido' },
     { label: 'Ferreterías y materiales', href: '/soluciones/ferreterias-y-materiales' },
-    { label: 'Profesionales y servicios', href: '/soluciones/profesionales-y-servicios' },
+    { label: 'Viveros y jardinería', href: '/soluciones/viveros-y-jardineria' },
+    { label: 'Artesanías y hecho a mano', href: '/soluciones/artesanias-y-hecho-a-mano' },
     { label: 'Comercios y tiendas', href: '/soluciones/comercios-y-tiendas' },
-    { label: 'SavvyPOS', href: 'https://savvypos.com/' },
+    { label: 'Profesionales y servicios', href: '/soluciones/profesionales-y-servicios' },
+    { label: 'Empresas de internet', href: '/soluciones/empresas-de-internet' },
+    { label: 'Software para negocios', href: '/soluciones/software-para-negocios' },
   ];
 
   readonly serviceLinks = [

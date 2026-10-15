@@ -43,7 +43,7 @@ export class ClientsComponent {
     {
       name: 'Gardennli',
       category: 'tiendas',
-      kind: 'Tienda general · Cartagena',
+      kind: 'Tecnología, música y electrodomésticos · Cartagena',
       text: 'Catálogo por categorías con historias en video, como en Instagram.',
       url: 'https://gardennli.savvytrix.com/',
       host: 'gardennli.savvytrix.com',

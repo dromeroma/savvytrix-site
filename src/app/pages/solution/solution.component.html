@@ -68,6 +68,23 @@
         <a [href]="c.url" target="_blank" rel="noopener" class="mt-6 inline-flex font-semibold text-[var(--color-accent)] hover:underline">Ver el sitio: {{ c.host }} &rarr;</a>
       </div>
     </div>
+    @if (n.moreCases?.length) {
+      <div class="mx-auto max-w-5xl mt-10">
+        <p class="text-sm font-semibold uppercase tracking-widest text-[var(--color-accent)]">También confían en nosotros</p>
+        <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-6">
+          @for (m of n.moreCases; track m.client) {
+            <a [href]="m.url" target="_blank" rel="noopener" class="group flex gap-4 items-center rounded-2xl border border-[var(--color-border)] bg-[var(--color-card-bg)] p-4 transition-all hover:-translate-y-0.5 hover:shadow-lg">
+              <img [src]="'/' + m.img" [alt]="'Sitio web de ' + m.client" width="960" height="600" loading="lazy" class="w-32 sm:w-40 shrink-0 rounded-lg border border-[var(--color-border)]">
+              <div class="min-w-0">
+                <p class="font-semibold text-[var(--color-text)]">{{ m.client }} · {{ m.place }}</p>
+                <p class="mt-1 text-sm text-[var(--color-text-muted)] leading-relaxed">{{ m.text }}</p>
+                <p class="mt-2 text-sm font-semibold text-[var(--color-accent)]">{{ m.host }} &rarr;</p>
+              </div>
+            </a>
+          }
+        </div>
+      </div>
+    }
   </section>
 }
 

@@ -117,6 +117,8 @@ export const HOME_FAQS = [
   { q: '¿Qué pasa si dejo de pagar la mensualidad?', a: 'La mensualidad mantiene tu sitio en línea, con soporte y cambios. Si se deja de pagar, el sitio se pausa hasta que te pongas al día.' },
 ];
 
+export interface CaseStudy { client: string; place: string; text: string; url: string; host: string; img: string }
+
 export interface Niche {
   slug: string;
   name: string;
@@ -128,7 +130,8 @@ export interface Niche {
   problems: string[];
   solutions: { title: string; text: string }[];
   lines: string[]; // ids de LINES que aplican
-  caseStudy?: { client: string; place: string; text: string; url: string; host: string; img: string };
+  caseStudy?: CaseStudy;
+  moreCases?: CaseStudy[]; // otros clientes del mismo nicho (la página los muestra debajo del caso principal)
   faqs: { q: string; a: string }[];
   need: string;     // opción preseleccionada en el formulario
   waMessage: string;
@@ -262,5 +265,195 @@ export const NICHES: Niche[] = [
     ],
     need: 'Sistema de ventas (SavvyPOS)',
     waMessage: 'Hola, tengo un comercio / minimercado y quiero cotizar SavvyPOS y tienda en línea con Savvytrix.',
+  },
+  {
+    slug: 'electrodomesticos-y-sonido',
+    name: 'Electrodomésticos, música y sonido',
+    short: 'Catálogo por categorías con fotos y precios, historias en video y pedidos por WhatsApp.',
+    seoTitle: 'Tienda en línea para almacenes de electrodomésticos, música y sonido | Savvytrix',
+    seoDescription: 'Tienda en línea por categorías para almacenes de electrodomésticos, instrumentos musicales, sonido y tecnología, con historias en video y pedidos por WhatsApp.',
+    headline: 'Todo tu almacén en el celular de tus clientes',
+    intro: 'Electrodomésticos, instrumentos, sonido y tecnología ordenados por categoría, con tus promociones al frente y pedidos que llegan a tu WhatsApp.',
+    problems: [
+      'Vendes de todo y es imposible mostrarlo completo por WhatsApp.',
+      'Mandas las mismas fotos y precios una y otra vez.',
+      'Tus clientes no se enteran de lo nuevo que llegó ni de tus ofertas.',
+    ],
+    solutions: [
+      { title: 'Catálogo por categorías', text: 'Cada sección con su color e ícono: electrodomésticos, sonido, instrumentos, celulares…' },
+      { title: 'Historias en video', text: 'Muestra productos en video corto, como en Instagram, desde tu propia página.' },
+      { title: 'Promociones en portada', text: 'Tus ofertas y lo nuevo, siempre a la vista apenas entran.' },
+      { title: 'Pedidos por WhatsApp', text: 'El cliente arma su pedido y te llega completo, con código.' },
+    ],
+    lines: ['ventas', 'presencia', 'operacion'],
+    caseStudy: {
+      client: 'Gardennli',
+      place: 'Cartagena',
+      text: 'Su tienda en línea: computadores, celulares, electrodomésticos, instrumentos musicales y sonido por categorías, con historias en video y pedidos por WhatsApp.',
+      url: 'https://gardennli.savvytrix.com/',
+      host: 'gardennli.savvytrix.com',
+      img: 'clients/gardennli.webp',
+    },
+    faqs: [
+      { q: '¿Puedo tener muchas categorías?', a: 'Sí. Creas las que necesites y cada una puede tener su propio color e ícono.' },
+      { q: '¿Cómo subo los videos de las historias?', a: 'Desde tu panel, con videos verticales grabados con el celular. Si prefieres, nos los envías y los subimos.' },
+      { q: '¿Puedo mostrar precios con descuento?', a: 'Sí. Pones el precio normal y el de oferta, y la página muestra el ahorro.' },
+    ],
+    need: 'Tienda en línea',
+    waMessage: 'Hola, tengo un almacén de electrodomésticos / música / sonido y quiero cotizar con Savvytrix.',
+  },
+  {
+    slug: 'viveros-y-jardineria',
+    name: 'Viveros, plantas y jardinería',
+    short: 'Catálogo de plantas, materas y abonos con fotos, y pedidos por WhatsApp.',
+    seoTitle: 'Tienda en línea para viveros y jardinería | Savvytrix',
+    seoDescription: 'Catálogo en línea para viveros: plantas, flores, materas, sustratos y abonos por categorías, con pedidos por WhatsApp y presencia en Google Maps.',
+    headline: 'Que vean tus plantas antes de ir al vivero',
+    intro: 'Plantas, flores, materas, sustratos y abonos con fotos y precios, organizados para que el cliente encuentre y pida fácil.',
+    problems: [
+      'Te preguntan todo el día "¿tienes esta planta?" y "¿cuánto vale?".',
+      'Las fotos de tus plantas se pierden en los estados de WhatsApp.',
+      'Cuando buscan "vivero" en tu ciudad, no apareces.',
+    ],
+    solutions: [
+      { title: 'Catálogo por categorías', text: 'Flores, plantas de interior, ornamentales, materas, sustratos, semillas y herramientas.' },
+      { title: 'Fotos que venden', text: 'Cada planta con su foto, su precio y su descripción.' },
+      { title: 'Pedidos por WhatsApp', text: 'El cliente elige sus plantas y el pedido te llega completo.' },
+      { title: 'Aparece en Google Maps', text: 'Perfil de Empresa para que te encuentren cuando buscan un vivero cerca.' },
+    ],
+    lines: ['ventas', 'presencia'],
+    caseStudy: {
+      client: 'Vivero Rehobot',
+      place: 'Apartadó, Antioquia',
+      text: 'Su tienda en línea: flores, plantas, materas, sustratos y abonos organizados por categoría, con pedidos por WhatsApp.',
+      url: 'https://viverorehobot.savvytrix.com/',
+      host: 'viverorehobot.savvytrix.com',
+      img: 'clients/viverorehobot.webp',
+    },
+    faqs: [
+      { q: '¿Y si mis plantas cambian según la temporada?', a: 'Desde tu panel marcas lo que hay disponible y lo que se agotó, en segundos.' },
+      { q: '¿Puedo vender también materas y abonos?', a: 'Sí. Todo lo que vendes va en el mismo catálogo, cada cosa en su categoría.' },
+      { q: '¿Hacen domicilios por la página?', a: 'El pedido te llega por WhatsApp y tú coordinas la entrega como ya lo haces.' },
+    ],
+    need: 'Tienda en línea',
+    waMessage: 'Hola, tengo un vivero y quiero cotizar con Savvytrix.',
+  },
+  {
+    slug: 'artesanias-y-hecho-a-mano',
+    name: 'Artesanías y productos hechos a mano',
+    short: 'Colecciones con su historia, piezas personalizables y pedidos por WhatsApp.',
+    seoTitle: 'Tienda en línea para artesanías y emprendimientos hechos a mano | Savvytrix',
+    seoDescription: 'Tienda en línea para artesanos y emprendimientos: colecciones, piezas personalizables, tiempos de elaboración, ideas de regalo y pedidos por WhatsApp.',
+    headline: 'Que tu trabajo hecho a mano se vea como lo que es: único',
+    intro: 'Una tienda que cuenta la historia de cada pieza, deja que el cliente la personalice y te envía el pedido por WhatsApp.',
+    problems: [
+      'Tus piezas se ven pequeñas y perdidas entre tantas publicaciones en redes.',
+      'Cada encargo personalizado son 20 mensajes para acordar colores y detalles.',
+      'Te preguntan una y otra vez cuánto tarda un pedido.',
+    ],
+    solutions: [
+      { title: 'Colecciones con historia', text: 'Cada colección y cada pieza con su frase, sus fotos y lo que la hace especial.' },
+      { title: 'Piezas personalizables', text: 'El cliente elige colores, nombres o detalles antes de pedir.' },
+      { title: 'Tiempo de elaboración', text: 'Cada pieza dice cuántos días tarda: menos preguntas, clientes tranquilos.' },
+      { title: 'Ideas y preguntas frecuentes', text: 'Ideas de regalo y respuestas listas que tú editas desde tu panel.' },
+    ],
+    lines: ['ventas', 'presencia'],
+    caseStudy: {
+      client: 'Lui Crochet',
+      place: 'Apartadó, Antioquia',
+      text: 'Su tienda artesanal: colecciones tejidas a mano, piezas personalizables, ideas de regalo y pedidos por WhatsApp.',
+      url: 'https://lui-crochet.savvytrix.com/',
+      host: 'lui-crochet.savvytrix.com',
+      img: 'clients/luicrochet.webp',
+    },
+    faqs: [
+      { q: '¿Puedo no mostrar precios y que me pidan cotización?', a: 'Sí. Cada pieza puede mostrar su precio o un botón para cotizar por WhatsApp.' },
+      { q: '¿Sirve si hago pedidos por encargo?', a: 'Sí. El cliente indica lo que quiere personalizar y te llega todo en el pedido.' },
+      { q: '¿Puedo cambiar las fotos sin ayuda?', a: 'Sí. Desde tu panel subes fotos, piezas y colecciones cuando quieras.' },
+    ],
+    need: 'Tienda en línea',
+    waMessage: 'Hola, tengo un emprendimiento de artesanías / hecho a mano y quiero cotizar con Savvytrix.',
+  },
+  {
+    slug: 'empresas-de-internet',
+    name: 'Empresas de internet y telecomunicaciones',
+    short: 'Página empresarial con planes, cobertura, test de velocidad, pago de factura y PQR.',
+    seoTitle: 'Página web para empresas de internet y proveedores de fibra óptica | Savvytrix',
+    seoDescription: 'Páginas empresariales para proveedores de internet: planes, cobertura, test de velocidad, pago de factura, PQR y normatividad, con contacto por WhatsApp.',
+    headline: 'Que tus clientes contraten, paguen y te encuentren sin llamar',
+    intro: 'Una página empresarial a la altura de tu red: planes claros, cobertura, test de velocidad y atención al usuario en un solo lugar.',
+    problems: [
+      'Tu línea de atención se llena de preguntas por planes y cobertura.',
+      'Los usuarios no saben dónde pagar la factura ni cómo radicar una PQR.',
+      'Tu competencia se ve más grande y más confiable en internet.',
+    ],
+    solutions: [
+      { title: 'Planes y cobertura', text: 'Tus planes con precios y beneficios, y las zonas donde llegas.' },
+      { title: 'Test de velocidad', text: 'El usuario mide su conexión desde tu propia página.' },
+      { title: 'Pago de factura y PQR', text: 'Accesos directos para pagar y radicar peticiones, quejas y reclamos.' },
+      { title: 'Normatividad y confianza', text: 'Información al usuario, políticas y datos de la empresa siempre a la vista.' },
+    ],
+    lines: ['presencia'],
+    caseStudy: {
+      client: 'SIR Telecomunicaciones',
+      place: 'Córdoba',
+      text: 'Su página empresarial: planes de fibra óptica, test de velocidad, pago de factura, radicación de PQR y normatividad.',
+      url: 'https://sirtel.com.co/',
+      host: 'sirtel.com.co',
+      img: 'clients/sirtel.webp',
+    },
+    moreCases: [
+      {
+        client: 'Fibratek',
+        place: 'San Pelayo, Córdoba',
+        text: 'Página empresarial con planes, cobertura, test de velocidad y contacto directo.',
+        url: 'https://fibratek.com.co/',
+        host: 'fibratek.com.co',
+        img: 'clients/fibratek.webp',
+      },
+    ],
+    faqs: [
+      { q: '¿Se puede conectar con mi pasarela de pagos?', a: 'Sí. Enlazamos el botón de pago con la plataforma que ya usas para recaudar.' },
+      { q: '¿Puedo cambiar los planes yo mismo?', a: 'Sí, o nos escribes y los actualizamos dentro de tu mensualidad.' },
+      { q: '¿Incluye las páginas de normatividad?', a: 'Sí. Organizamos la información al usuario y las políticas que nos entregues.' },
+    ],
+    need: 'Página web para mi negocio',
+    waMessage: 'Hola, tengo una empresa de internet / telecomunicaciones y quiero cotizar una página con Savvytrix.',
+  },
+  {
+    slug: 'software-para-negocios',
+    name: 'Software y sistemas para tu negocio',
+    short: 'Punto de venta, inventario, servicio técnico y ajustes a la medida de tu proceso.',
+    seoTitle: 'Software para negocios: punto de venta, inventario y sistemas a la medida | Savvytrix',
+    seoDescription: 'SavvyPOS para ventas, inventario y fiado, seguimiento de servicio técnico y sistemas ajustados al proceso de tu negocio en Colombia.',
+    headline: 'Deja el cuaderno y el Excel: tu negocio en un sistema',
+    intro: 'Software hecho por nosotros, que mejoramos con lo que piden nuestros clientes, y ajustado a la forma en que trabajas.',
+    problems: [
+      'Tu información está regada en cuadernos, Excel y chats.',
+      'No sabes con certeza cuánto vendiste ni qué hay en inventario.',
+      'Los programas que encuentras no se adaptan a cómo trabaja tu negocio.',
+    ],
+    solutions: [
+      { title: 'SavvyPOS', text: 'Ventas, caja, inventario y fiado. Funciona aunque se vaya el internet.' },
+      { title: 'Servicio técnico con guía', text: 'Cada orden con número de guía para que el cliente consulte su estado.' },
+      { title: 'Reportes para decidir', text: 'Ventas, productos que más se mueven y utilidad, sin hacer cuentas.' },
+      { title: 'Ajustes a la medida', text: 'Adaptamos el sistema a tu proceso: lo cotizamos después de conocer tu negocio.' },
+    ],
+    lines: ['operacion'],
+    caseStudy: {
+      client: 'SavvyPOS',
+      place: 'Desarrollo propio',
+      text: 'Nuestro sistema de punto de venta para tiendas: ventas, inventario y fiado, aunque se vaya el internet. Pruébalo 30 días gratis.',
+      url: 'https://savvypos.com/',
+      host: 'savvypos.com',
+      img: 'clients/savvypos.webp',
+    },
+    faqs: [
+      { q: '¿Puedo probarlo antes de pagar?', a: 'Sí. SavvyPOS tiene 30 días gratis, sin tarjeta de crédito.' },
+      { q: '¿Hacen software a la medida desde cero?', a: 'Primero conocemos tu proceso. Si lo resolvemos con lo que ya tenemos, sale más rápido y económico; si no, te cotizamos el desarrollo.' },
+      { q: '¿Funciona en el celular?', a: 'Sí. Funciona en el computador, la tablet o el celular que ya tienes.' },
+    ],
+    need: 'Software o sistema a la medida',
+    waMessage: 'Hola, quiero cotizar un sistema / software para mi negocio con Savvytrix.',
   },
 ];
