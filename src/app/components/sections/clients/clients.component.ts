@@ -61,7 +61,7 @@ export class ClientsComponent {
     {
       name: 'Lui Crochet',
       category: 'tiendas',
-      kind: 'Artesanías tejidas a mano',
+      kind: 'Artesanías tejidas a mano · Apartadó',
       text: 'Tienda artesanal con colecciones, piezas personalizables y pedidos por WhatsApp.',
       url: 'https://lui-crochet.savvytrix.com/',
       host: 'lui-crochet.savvytrix.com',
@@ -70,7 +70,7 @@ export class ClientsComponent {
     {
       name: 'Vivero Rehobot',
       category: 'tiendas',
-      kind: 'Vivero · Mateguadua',
+      kind: 'Vivero · Apartadó',
       text: 'Catálogo de plantas, materas y abonos por categorías, con pedidos por WhatsApp.',
       url: 'https://viverorehobot.savvytrix.com/',
       host: 'viverorehobot.savvytrix.com',
