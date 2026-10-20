@@ -111,7 +111,6 @@ export class ClientsComponent {
       url: 'https://jekingenieria.com/',
       host: 'jekingenieria.com',
       img: 'clients/jek.webp',
-      published: false, // esperando el aval del cliente
     },
     {
       name: 'SavvyPOS',
