@@ -5,11 +5,11 @@
       Un plan para cada etapa de tu negocio.
     </h2>
     <p class="mt-4 text-[var(--color-text-muted)] max-w-xl mx-auto">
-      Te cotizamos según lo que necesitas: sin pagar por lo que no vas a usar. Incluye alojamiento, soporte y actualizaciones.
+      Un pago por crear tu sitio y una mensualidad que incluye alojamiento, soporte y actualizaciones. El valor exacto te lo enviamos por escrito antes de empezar.
     </p>
   </div>
 
-  <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+  <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 max-w-7xl mx-auto">
     @for (plan of plans; track plan.name) {
       <div class="relative flex flex-col rounded-2xl border bg-[var(--color-card-bg)] p-7"
         [class]="plan.featured ? 'border-[var(--color-accent)] shadow-lg' : 'border-[var(--color-border)]'">
@@ -18,6 +18,18 @@
         }
         <h3 class="text-xl font-bold text-[var(--color-text)]">{{ plan.name }}</h3>
         <p class="mt-1 text-sm text-[var(--color-text-muted)]">{{ plan.text }}</p>
+
+        <div class="mt-6 min-h-[5.5rem]">
+          @if (plan.setup) {
+            <p class="text-xs text-[var(--color-text-muted)]">Desde</p>
+            <p class="text-3xl font-bold text-[var(--color-text)]">{{ plan.setup }}</p>
+            <p class="mt-1 text-sm text-[var(--color-text-muted)]">+ desde {{ plan.monthly }} al mes</p>
+          } @else {
+            <p class="text-xs text-[var(--color-text-muted)]">Precio</p>
+            <p class="text-3xl font-bold text-[var(--color-text)]">A tu medida</p>
+            <p class="mt-1 text-sm text-[var(--color-text-muted)]">Según el alcance de tu proyecto</p>
+          }
+        </div>
 
         <ul class="mt-6 space-y-3 flex-1">
           @for (f of plan.features; track f) {
@@ -31,17 +43,10 @@
         <a [href]="quoteUrl(plan.name)" target="_blank" rel="noopener noreferrer"
           class="mt-8 inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold transition-colors"
           [class]="plan.featured ? 'bg-[var(--color-accent)] text-white hover:opacity-90' : 'border border-[var(--color-border)] text-[var(--color-text)] hover:border-[var(--color-accent)]'">
-          Cotizar este plan
+          {{ plan.setup ? 'Cotizar este plan' : 'Cuéntanos tu proyecto' }}
         </a>
       </div>
     }
   </div>
 
-  <a href="https://savvypos.com/" target="_blank" rel="noopener"
-    class="mt-8 max-w-6xl mx-auto flex flex-col sm:flex-row sm:items-center justify-between gap-3 rounded-2xl border border-[var(--color-border)] bg-[var(--color-card-bg)] px-7 py-5 hover:border-[var(--color-accent)] transition-colors">
-    <span class="text-sm text-[var(--color-text)]">
-      <strong>¿Tienes tienda física?</strong> SavvyPOS, el sistema para vender, llevar inventario y fiado. Pruébalo 30 días gratis.
-    </span>
-    <span class="text-sm font-semibold text-[var(--color-accent)] shrink-0">savvypos.com &rarr;</span>
-  </a>
 </app-section-wrapper>

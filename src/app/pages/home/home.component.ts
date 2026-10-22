@@ -4,6 +4,7 @@ import { ClientsComponent } from '../../components/sections/clients/clients.comp
 import { ProductsComponent } from '../../components/sections/products/products.component';
 import { LinesComponent } from '../../components/sections/lines/lines.component';
 import { NichesComponent } from '../../components/sections/niches/niches.component';
+import { PlansComponent } from '../../components/sections/plans/plans.component';
 import { MonthlyComponent } from '../../components/sections/monthly/monthly.component';
 import { OnboardingComponent } from '../../components/sections/onboarding/onboarding.component';
 import { AboutComponent } from '../../components/sections/about/about.component';
@@ -15,7 +16,7 @@ import { FinalCtaComponent } from '../../components/sections/final-cta/final-cta
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [HeroComponent, ProblemsComponent, LinesComponent, NichesComponent, ClientsComponent, ProductsComponent, MonthlyComponent, OnboardingComponent, AboutComponent, FaqComponent, ContactComponent, FinalCtaComponent],
+  imports: [HeroComponent, ProblemsComponent, LinesComponent, NichesComponent, ClientsComponent, ProductsComponent, PlansComponent, MonthlyComponent, OnboardingComponent, AboutComponent, FaqComponent, ContactComponent, FinalCtaComponent],
   templateUrl: './home.component.html',
 })
 export class HomeComponent {}

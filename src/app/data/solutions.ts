@@ -107,7 +107,7 @@ export const DELIVERABLES = [
 ];
 
 export const HOME_FAQS = [
-  { q: '¿Cuánto cuesta?', a: 'Depende de lo que necesites. Pagas la creación una sola vez y después una mensualidad. Antes de empezar te enviamos el valor exacto por escrito; si tu presupuesto es corto, arrancamos por lo esencial y crecemos contigo.' },
+  { q: '¿Cuánto cuesta?', a: 'Pagas la creación una sola vez y después una mensualidad. Nuestros planes van desde $2.400.000 la creación y $130.000 al mes; si necesitas algo más sencillo o un proyecto más grande, te cotizamos el plan Personalizado. Antes de empezar te enviamos el valor exacto por escrito.' },
   { q: '¿Cuánto tarda?', a: 'Un sitio estándar suele quedar listo en 1 a 3 semanas. Una tienda con un catálogo grande puede tomar más. También depende de qué tan rápido nos envíes tu información.' },
   { q: '¿Qué tengo que entregar?', a: 'Tu logo (si no tienes, te lo hacemos), fotos de tu negocio o productos, y la lista de lo que vendes con precios. Puede ser un Excel o fotos por WhatsApp.' },
   { q: '¿Puedo hacer cambios yo mismo?', a: 'Sí. Te entregamos un panel para cambiar precios, productos, fotos y promociones desde el celular o el computador. Y si prefieres, nos escribes y lo hacemos por ti.' },

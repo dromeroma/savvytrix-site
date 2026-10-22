@@ -32,6 +32,7 @@ export class FooterComponent {
     { label: 'Qué hacemos', href: '/#soluciones' },
     { label: 'Clientes', href: '/#clientes' },
     { label: 'Desarrollos propios', href: '/#desarrollos' },
+    { label: 'Planes y precios', href: '/#planes' },
     { label: 'Cómo funciona', href: '/#proceso' },
     { label: 'Preguntas frecuentes', href: '/#preguntas' },
     { label: 'Quiénes somos', href: '/#nosotros' },
