@@ -33,7 +33,7 @@ export class NichesComponent {
   /** Orden de presentación: tiendas primero, luego empresas y software. */
   private static readonly ORDER = [
     'tiendas-de-tecnologia', 'electrodomesticos-y-sonido', 'ferreterias-y-materiales',
-    'viveros-y-jardineria', 'artesanias-y-hecho-a-mano', 'comercios-y-tiendas',
+    'viveros-y-jardineria', 'artesanias-y-hecho-a-mano', 'pastelerias-y-reposteria', 'belleza-y-accesorios', 'comercios-y-tiendas',
     'profesionales-y-servicios', 'empresas-de-internet', 'software-para-negocios',
   ];
   readonly niches = [...NICHES].sort((a, b) => {

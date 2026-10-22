@@ -19,6 +19,8 @@ export class FooterComponent {
     { label: 'Ferreterías y materiales', href: '/soluciones/ferreterias-y-materiales' },
     { label: 'Viveros y jardinería', href: '/soluciones/viveros-y-jardineria' },
     { label: 'Artesanías y hecho a mano', href: '/soluciones/artesanias-y-hecho-a-mano' },
+    { label: 'Pastelerías y repostería', href: '/soluciones/pastelerias-y-reposteria' },
+    { label: 'Belleza y accesorios', href: '/soluciones/belleza-y-accesorios' },
     { label: 'Comercios y tiendas', href: '/soluciones/comercios-y-tiendas' },
     { label: 'Profesionales y servicios', href: '/soluciones/profesionales-y-servicios' },
     { label: 'Empresas de internet', href: '/soluciones/empresas-de-internet' },
