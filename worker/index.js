@@ -116,8 +116,13 @@ async function handleContact(request, env) {
   ]);
   if (panel.status === 'rejected') console.log('panel (solicitud) falló:', panel.reason && panel.reason.message);
   if (mail.status === 'rejected') console.log('correo de contacto falló:', mail.reason && mail.reason.message);
-  if (panel.status === 'fulfilled' || mail.status === 'fulfilled') return json({ ok: true });
-  return json({ detail: 'No se pudo enviar la solicitud.' }, 502);
+  // Estado de cada camino (sin datos personales), para diagnosticar si uno falla.
+  const status = {
+    panel: panel.status === 'fulfilled' ? 'ok' : String(panel.reason && panel.reason.message || panel.reason).slice(0, 160),
+    mail: mail.status === 'fulfilled' ? 'ok' : String(mail.reason && mail.reason.message || mail.reason).slice(0, 160),
+  };
+  if (panel.status === 'fulfilled' || mail.status === 'fulfilled') return json({ ok: true, ...status });
+  return json({ detail: 'No se pudo enviar la solicitud.', ...status }, 502);
 }
 
 /** Guarda la solicitud en el panel → Solicitudes (y avisa con notificación push). */
