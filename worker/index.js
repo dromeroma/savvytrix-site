@@ -40,27 +40,47 @@ export default {
 
 /* ------------------------------------------------------------------ datos del panel */
 
-const PANEL_WAIT_MS = 1200;
+const PANEL_WAIT_MS = 1200; // sin copia guardada: lo máximo que se espera al panel
+const PANEL_FRESH_S = 120; // una copia de más de 2 min se sirve igual y se renueva por detrás
+const PANEL_KEEP_S = 7 * 24 * 3600; // si el panel cae, se sigue usando la última copia
+const PANEL_KEY = 'https://savvytrix.com/__panel-data';
 
-/** /v1/site + /v1/showcase en paralelo, con caché en el borde de 2 minutos. */
+/**
+ * Contenido del panel (/v1/site + /v1/showcase) con "stale-while-revalidate" en la caché del
+ * borde: casi siempre responde al instante con la última copia y la renueva en segundo plano.
+ */
 async function panelData(ctx) {
-  const all = Promise.all([panelGet('/site'), panelGet('/showcase')]).then(([site, showcase]) =>
-    site || showcase ? { site, showcase } : null,
-  );
+  const cache = caches.default;
+  const hit = await cache.match(PANEL_KEY).catch(() => null);
+  if (hit) {
+    const age = (Date.now() - Number(hit.headers.get('x-saved-at') || 0)) / 1000;
+    if (age > PANEL_FRESH_S) ctx.waitUntil(refreshPanel(cache).catch(() => null));
+    return hit.json().catch(() => null);
+  }
+  const fresh = refreshPanel(cache);
   const timeout = new Promise((r) => setTimeout(() => r('timeout'), PANEL_WAIT_MS));
-  const out = await Promise.race([all, timeout]);
+  const out = await Promise.race([fresh, timeout]);
   if (out === 'timeout') {
-    ctx.waitUntil(all.catch(() => null)); // que termine y quede en caché para la próxima visita
+    ctx.waitUntil(fresh.catch(() => null)); // que termine y quede guardado para la próxima visita
     return null;
   }
   return out;
+}
+
+async function refreshPanel(cache) {
+  const [site, showcase] = await Promise.all([panelGet('/site'), panelGet('/showcase')]);
+  if (!site && !showcase) return null; // el panel no respondió: se conserva la copia anterior
+  const data = { site, showcase };
+  await cache.put(PANEL_KEY, new Response(JSON.stringify(data), {
+    headers: { 'Content-Type': 'application/json', 'Cache-Control': `max-age=${PANEL_KEEP_S}`, 'x-saved-at': String(Date.now()) },
+  }));
+  return data;
 }
 
 async function panelGet(path) {
   try {
     const r = await fetch(SAVVY_API + path, {
       headers: { Accept: 'application/json', Origin: 'https://savvytrix.com', 'X-Tenant-Slug': SAVVY_TENANT },
-      cf: { cacheTtl: 120, cacheEverything: true },
     });
     return r.ok ? await r.json() : null;
   } catch {
