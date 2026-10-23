@@ -1,20 +1,20 @@
 <app-section-wrapper sectionId="planes" extraClass="py-20 lg:py-28 bg-[var(--color-bg-alt)]">
   <div class="text-center mb-12">
-    <p class="text-sm font-semibold uppercase tracking-widest text-[var(--color-accent)] mb-3">Planes</p>
+    <p class="text-sm font-semibold uppercase tracking-widest text-[var(--color-accent)] mb-3">{{ texts().eyebrow }}</p>
     <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--color-text)] leading-tight text-balance">
-      Un plan para cada etapa de tu negocio.
+      {{ texts().title }}
     </h2>
     <p class="mt-4 text-[var(--color-text-muted)] max-w-xl mx-auto">
-      Un pago por crear tu sitio y una mensualidad que incluye alojamiento, soporte y actualizaciones. El valor exacto te lo enviamos por escrito antes de empezar.
+      {{ texts().intro }}
     </p>
   </div>
 
   <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 max-w-7xl mx-auto">
-    @for (plan of plans; track plan.name) {
+    @for (plan of plans(); track plan.name) {
       <div class="relative flex flex-col rounded-2xl border bg-[var(--color-card-bg)] p-7"
         [class]="plan.featured ? 'border-[var(--color-accent)] shadow-lg' : 'border-[var(--color-border)]'">
         @if (plan.featured) {
-          <span class="absolute -top-3 left-7 rounded-full bg-[var(--color-accent)] px-3 py-1 text-xs font-semibold text-white">Recomendado</span>
+          <span class="absolute -top-3 left-7 rounded-full bg-[var(--color-accent)] px-3 py-1 text-xs font-semibold text-white">{{ plan.badge || 'Recomendado' }}</span>
         }
         <h3 class="text-xl font-bold text-[var(--color-text)]">{{ plan.name }}</h3>
         <p class="mt-1 text-sm text-[var(--color-text-muted)]">{{ plan.text }}</p>
@@ -23,11 +23,11 @@
           @if (plan.setup) {
             <p class="text-xs text-[var(--color-text-muted)]">Desde</p>
             <p class="text-3xl font-bold text-[var(--color-text)]">{{ plan.setup }}</p>
-            <p class="mt-1 text-sm text-[var(--color-text-muted)]">+ desde {{ plan.monthly }} al mes</p>
+            <p class="mt-1 text-sm text-[var(--color-text-muted)]">{{ plan.note }}</p>
           } @else {
             <p class="text-xs text-[var(--color-text-muted)]">Precio</p>
             <p class="text-3xl font-bold text-[var(--color-text)]">A tu medida</p>
-            <p class="mt-1 text-sm text-[var(--color-text-muted)]">Según el alcance de tu proyecto</p>
+            <p class="mt-1 text-sm text-[var(--color-text-muted)]">{{ plan.note }}</p>
           }
         </div>
 
@@ -40,10 +40,15 @@
           }
         </ul>
 
-        <a [href]="quoteUrl(plan.name)" target="_blank" rel="noopener noreferrer"
+        <a href="/#cotizar" (click)="choose($event, plan.name)"
           class="mt-8 inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold transition-colors"
-          [class]="plan.featured ? 'bg-[var(--color-accent)] text-white hover:opacity-90' : 'border border-[var(--color-border)] text-[var(--color-text)] hover:border-[var(--color-accent)]'">
-          {{ plan.setup ? 'Cotizar este plan' : 'Cuéntanos tu proyecto' }}
+          [class]="plan.featured ? 'bg-[var(--color-accent)] text-white hover:opacity-90' : 'bg-[var(--color-text)] text-[var(--color-bg)] hover:opacity-90'">
+          {{ plan.setup ? 'Quiero este plan' : 'Cuéntanos tu proyecto' }}
+        </a>
+        <a [href]="quoteUrl(plan.name)" target="_blank" rel="noopener noreferrer"
+          class="mt-2.5 inline-flex items-center justify-center gap-1.5 rounded-xl px-5 py-2 text-sm font-medium text-[var(--color-text-muted)] hover:text-[var(--color-text)]">
+          <svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="#25D366"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.06 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35M12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88M20.46 3.49A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89a11.82 11.82 0 0 0-3.48-8.41z"/></svg>
+          o pregúntalo por WhatsApp
         </a>
       </div>
     }

@@ -1,7 +1,8 @@
-import { Component, OnInit, input, signal } from '@angular/core';
+import { Component, OnInit, inject, input, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { SectionWrapperComponent } from '../../shared/section-wrapper/section-wrapper.component';
 import { WHATSAPP_URL } from '../../../config';
+import { CtaService } from '../../../services/cta.service';
 
 /**
  * Formulario de cotización. Envía a /api/contacto (worker → correo con Email Routing).
@@ -16,6 +17,8 @@ import { WHATSAPP_URL } from '../../../config';
 export class ContactComponent implements OnInit {
   /** Opción de "¿Qué necesitas?" preseleccionada (páginas por nicho). */
   readonly preset = input('');
+  /** Plan elegido en la sección Planes (se muestra y se envía con la solicitud). */
+  readonly cta = inject(CtaService);
 
   readonly needs = [
     'Página web para mi negocio',
@@ -42,6 +45,7 @@ export class ContactComponent implements OnInit {
     return [
       'Hola, quiero cotizar con Savvytrix.',
       `Nombre: ${f.name}`,
+      this.cta.plan() ? `Plan: ${this.cta.plan()}` : '',
       f.business ? `Negocio y ciudad: ${f.business}` : '',
       `Necesito: ${f.need}`,
       f.message ? `Detalle: ${f.message}` : '',
@@ -65,7 +69,7 @@ export class ContactComponent implements OnInit {
       const r = await fetch('/api/contacto', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...f, source: location.pathname }),
+        body: JSON.stringify({ ...f, plan: this.cta.plan(), source: location.pathname }),
       });
       if (!r.ok) throw new Error(String(r.status));
       this.sent.set(true);

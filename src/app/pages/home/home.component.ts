@@ -12,11 +12,12 @@ import { FaqComponent } from '../../components/sections/faq/faq.component';
 import { ProblemsComponent } from '../../components/sections/problems/problems.component';
 import { ContactComponent } from '../../components/sections/contact/contact.component';
 import { FinalCtaComponent } from '../../components/sections/final-cta/final-cta.component';
+import { CtaStripComponent } from '../../components/shared/cta-strip/cta-strip.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [HeroComponent, ProblemsComponent, LinesComponent, NichesComponent, ClientsComponent, ProductsComponent, PlansComponent, MonthlyComponent, OnboardingComponent, AboutComponent, FaqComponent, ContactComponent, FinalCtaComponent],
+  imports: [HeroComponent, ProblemsComponent, LinesComponent, NichesComponent, ClientsComponent, ProductsComponent, PlansComponent, MonthlyComponent, OnboardingComponent, AboutComponent, FaqComponent, ContactComponent, FinalCtaComponent, CtaStripComponent],
   templateUrl: './home.component.html',
 })
 export class HomeComponent {}

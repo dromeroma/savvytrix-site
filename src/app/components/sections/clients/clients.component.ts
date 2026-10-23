@@ -1,4 +1,5 @@
-import { Component, computed, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
+import { SavvyDataService } from '../../../services/savvy-data.service';
 import { SectionWrapperComponent } from '../../shared/section-wrapper/section-wrapper.component';
 
 type Category = 'tiendas' | 'empresariales' | 'profesionales' | 'software';
@@ -15,7 +16,8 @@ interface ClientWork {
   published?: boolean;
 }
 
-/** Proyectos reales en vivo. Agregar uno solo con permiso del cliente; sin cifras ni datos privados. */
+/** Proyectos reales en vivo: se manejan en el panel → Vitrina (solo con aval del cliente). La lista de
+ *  abajo es el respaldo si el panel no responde. Sin cifras ni datos privados. */
 @Component({
   selector: 'app-clients',
   standalone: true,
@@ -141,18 +143,26 @@ export class ClientsComponent {
     },
   ];
 
-  private readonly visible = this.works.filter((w) => w.published !== false);
+  private readonly data = inject(SavvyDataService);
+
+  private readonly visible = computed<ClientWork[]>(() => {
+    const items = this.data.showcase()?.filter((i) => i.shot);
+    if (items?.length) {
+      return items.map((i) => ({ name: i.name, category: i.category, kind: i.kind, text: i.text, url: i.url, host: i.host, img: i.shot }));
+    }
+    return this.works.filter((w) => w.published !== false);
+  });
 
   /** Solo las categorías que tienen al menos un proyecto publicado. */
-  readonly tabs = this.categories
-    .map((c) => ({ ...c, count: this.visible.filter((w) => w.category === c.id).length }))
-    .filter((c) => c.count > 0);
+  readonly tabs = computed(() => this.categories
+    .map((c) => ({ ...c, count: this.visible().filter((w) => w.category === c.id).length }))
+    .filter((c) => c.count > 0));
 
   readonly active = signal<Category | 'todos'>('todos');
-  readonly total = this.visible.length;
+  readonly total = computed(() => this.visible().length);
   readonly shown = computed(() => {
     const a = this.active();
-    return a === 'todos' ? this.visible : this.visible.filter((w) => w.category === a);
+    return a === 'todos' ? this.visible() : this.visible().filter((w) => w.category === a);
   });
 
   labelOf(c: Category): string {

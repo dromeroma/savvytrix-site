@@ -10,3 +10,7 @@ export const PROJECT_WHATSAPP_URL = `${WHATSAPP_URL}?text=${encodeURIComponent('
 export const SAVVYPOS_APP_URL = 'https://app.savvypos.com';
 export const SAVVYTRIX_APP_URL = 'https://app.savvytrix.com';
 export const SAVVY_SIGNUP_URL = 'https://app.savvypos.com/signup';
+
+// ── Panel Savvy Sites (savvytrix.com se administra como un cliente interno) ──
+export const SAVVY_API = 'https://yescomputo-admin.onrender.com/v1';
+export const SAVVY_TENANT = 'savvytrix';

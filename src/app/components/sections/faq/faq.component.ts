@@ -1,7 +1,8 @@
-import { Component, inject } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { SectionWrapperComponent } from '../../shared/section-wrapper/section-wrapper.component';
 import { HOME_FAQS } from '../../../data/solutions';
+import { SavvyDataService } from '../../../services/savvy-data.service';
 
 /** Objeciones típicas antes de comprar (costo, tiempo, qué entregar, si dejo de pagar…). */
 @Component({
@@ -15,7 +16,7 @@ import { HOME_FAQS } from '../../../data/solutions';
         <h2 class="text-3xl sm:text-4xl font-bold text-[var(--color-text)] leading-tight text-balance">Lo que nos preguntan antes de empezar.</h2>
       </div>
       <div class="mx-auto max-w-3xl space-y-3">
-        @for (f of faqs; track f.q) {
+        @for (f of faqs(); track f.q) {
           <details class="group rounded-2xl border border-[var(--color-border)] bg-[var(--color-card-bg)] p-5">
             <summary class="flex cursor-pointer list-none justify-between gap-4 font-semibold text-[var(--color-text)]">
               {{ f.q }}<span class="text-xl leading-none text-[var(--color-accent)] transition-transform group-open:rotate-45">+</span>
@@ -28,7 +29,9 @@ import { HOME_FAQS } from '../../../data/solutions';
   `,
 })
 export class FaqComponent {
-  readonly faqs = HOME_FAQS;
+  private readonly data = inject(SavvyDataService);
+  /** Del panel (Contenido → Preguntas); si no responde, las del código. */
+  readonly faqs = computed(() => this.data.faqs() ?? HOME_FAQS);
 
   constructor() {
     // Datos estructurados para resultados enriquecidos en Google.
@@ -40,7 +43,7 @@ export class FaqComponent {
     ld.text = JSON.stringify({
       '@context': 'https://schema.org',
       '@type': 'FAQPage',
-      mainEntity: this.faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+      mainEntity: HOME_FAQS.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
     }).replace(/</g, '\\u003c');
     doc.head.appendChild(ld);
   }

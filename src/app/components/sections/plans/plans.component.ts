@@ -1,6 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { SectionWrapperComponent } from '../../shared/section-wrapper/section-wrapper.component';
-import { WHATSAPP_URL } from '../../../config';
+import { CtaService, wa } from '../../../services/cta.service';
+import { SavvyDataService } from '../../../services/savvy-data.service';
+
+interface Plan {
+  name: string;
+  text: string;
+  /** Precio de creación (vacío = "A tu medida"). */
+  setup: string;
+  /** Línea bajo el precio, p. ej. "+ desde $170.000 al mes". */
+  note: string;
+  badge: string;
+  featured: boolean;
+  features: string[];
+}
 
 /** Planes de Savvy Sites con precio "desde" (lista; ver estrategia de precios) + plan Personalizado sin precio público. */
 @Component({
@@ -10,7 +23,11 @@ import { WHATSAPP_URL } from '../../../config';
   templateUrl: './plans.component.html',
 })
 export class PlansComponent {
-  readonly plans = [
+  private readonly cta = inject(CtaService);
+  private readonly data = inject(SavvyDataService);
+
+  /** Respaldo si el panel no responde (los planes se editan en el panel → Servicios, con su precio). */
+  private readonly fallback = [
     {
       name: 'Esencial',
       text: 'Para empezar a recibir clientes por internet.',
@@ -65,7 +82,43 @@ export class PlansComponent {
     },
   ];
 
+  readonly plans = computed<Plan[]>(() => {
+    const fromPanel = this.data.plans();
+    if (fromPanel) {
+      return fromPanel.map((o) => ({
+        name: o.title,
+        text: o.summary,
+        setup: o.pricing.price || '',
+        note: o.pricing.price ? o.pricing.priceNote || '' : o.pricing.priceNote || 'Según el alcance de tu proyecto',
+        badge: o.pricing.badge || (o.pricing.featured ? 'Recomendado' : ''),
+        featured: !!o.pricing.featured,
+        features: o.deliverables || [],
+      }));
+    }
+    return this.fallback.map((p) => ({
+      name: p.name, text: p.text, setup: p.setup, featured: p.featured, features: p.features,
+      note: p.setup ? `+ desde ${p.monthly} al mes` : 'Según el alcance de tu proyecto',
+      badge: p.featured ? 'Recomendado' : '',
+    }));
+  });
+
+  /** Textos de la sección (panel → Contenido → Planes y precios). */
+  readonly texts = computed(() => {
+    const t = this.data.pricingTexts();
+    return {
+      eyebrow: t.eyebrow || 'Planes',
+      title: t.title || 'Un plan para cada etapa de tu negocio.',
+      intro: t.intro || 'Un pago por crear tu sitio y una mensualidad que incluye alojamiento, soporte y actualizaciones. El valor exacto te lo enviamos por escrito antes de empezar.',
+    };
+  });
+
+  /** "Quiero este plan": baja al formulario con el plan ya marcado. */
+  choose(ev: Event, plan: string): void {
+    ev.preventDefault();
+    this.cta.choosePlan(plan);
+  }
+
   quoteUrl(plan: string): string {
-    return `${WHATSAPP_URL}?text=${encodeURIComponent(`Hola, quiero cotizar el plan ${plan} de Savvytrix para mi negocio.`)}`;
+    return wa(`Hola, quiero cotizar el plan ${plan} de Savvytrix para mi negocio.`, this.data.whatsappNumber());
   }
 }

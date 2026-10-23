@@ -2,7 +2,7 @@ import { Component, signal, inject, PLATFORM_ID, afterNextRender, DestroyRef } f
 import { isPlatformBrowser } from '@angular/common';
 import { ThemeSwitcherComponent } from '../../ui/theme-switcher/theme-switcher.component';
 import { ButtonComponent } from '../../ui/button/button.component';
-import { CONTACT_WHATSAPP_URL } from '../../../config';
+import { CtaService } from '../../../services/cta.service';
 
 @Component({
   selector: 'app-navbar',
@@ -13,7 +13,7 @@ import { CONTACT_WHATSAPP_URL } from '../../../config';
 export class NavbarComponent {
   private platformId = inject(PLATFORM_ID);
   private destroyRef = inject(DestroyRef);
-  readonly contactUrl = CONTACT_WHATSAPP_URL;
+  readonly cta = inject(CtaService);
   isScrolled = signal(false);
   mobileMenuOpen = signal(false);
 
@@ -24,7 +24,6 @@ export class NavbarComponent {
     { label: 'Planes', href: '/#planes' },
     { label: 'Cómo funciona', href: '/#proceso' },
     { label: 'Preguntas', href: '/#preguntas' },
-    { label: 'Cotizar', href: '/#cotizar' },
   ];
 
   constructor() {

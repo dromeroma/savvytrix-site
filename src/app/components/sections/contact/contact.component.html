@@ -31,7 +31,7 @@
 
     <div class="rounded-3xl border border-[var(--color-border)] bg-[var(--color-card-bg)] p-6 sm:p-8">
       @if (sent()) {
-        <div class="py-10 text-center">
+        <div class="py-10 text-center" data-sent>
           <div class="mx-auto grid h-14 w-14 place-items-center rounded-full bg-[var(--color-accent)]/15 text-[var(--color-accent)]">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>
           </div>
@@ -44,6 +44,12 @@
         </div>
       } @else {
         <form (ngSubmit)="submit()" class="space-y-4" novalidate>
+          @if (cta.plan()) {
+            <div class="flex items-center justify-between gap-3 rounded-xl border border-[var(--color-accent)]/40 bg-[var(--color-accent)]/10 px-4 py-3">
+              <p class="text-sm text-[var(--color-text)]">Plan elegido: <b>{{ cta.plan() }}</b></p>
+              <button type="button" (click)="cta.plan.set('')" class="text-xs font-medium text-[var(--color-text-muted)] hover:text-[var(--color-text)]">Quitar</button>
+            </div>
+          }
           <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <label class="block">
               <span class="text-sm font-medium text-[var(--color-text)]">Nombre *</span>

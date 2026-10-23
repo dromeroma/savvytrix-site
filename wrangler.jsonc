@@ -5,12 +5,13 @@
 {
   "name": "savvytrix-site",
   "compatibility_date": "2026-09-01",
-  // Worker: /api/contacto (formulario → correo); el resto, archivos estáticos.
+  // Worker: /api/contacto (formulario → panel + correo) y las páginas, a las que les agrega el
+  // contenido del panel Savvy Sites (vitrina, planes, preguntas). JS/CSS/imágenes: directo.
   "main": "./worker/index.js",
   "assets": {
     "directory": "./dist/savvy-landing/browser",
     "binding": "ASSETS",
-    "run_worker_first": ["/api/*"],
+    "run_worker_first": ["/api/*", "/", "/soluciones/*"],
     // /privacidad → privacidad/index.html without redirecting to /privacidad/ (matches sitemap)
     "html_handling": "drop-trailing-slash",
     // Unknown routes serve index.html; Angular's '**' route then redirects to home

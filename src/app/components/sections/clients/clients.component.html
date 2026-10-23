@@ -15,9 +15,9 @@
       [class]="active() === 'todos'
         ? 'border-[var(--color-accent)] bg-[var(--color-accent)] text-white'
         : 'border-[var(--color-border)] text-[var(--color-text-muted)] hover:text-[var(--color-text)] hover:border-[var(--color-text-muted)]'">
-      Todos <span class="ml-1 opacity-70">{{ total }}</span>
+      Todos <span class="ml-1 opacity-70">{{ total() }}</span>
     </button>
-    @for (t of tabs; track t.id) {
+    @for (t of tabs(); track t.id) {
       <button type="button" role="tab" [attr.aria-selected]="active() === t.id" (click)="active.set(t.id)"
         class="rounded-full border px-4 py-2 text-sm font-medium transition-colors"
         [class]="active() === t.id

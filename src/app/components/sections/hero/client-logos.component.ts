@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
+import { SavvyDataService } from '../../../services/savvy-data.service';
 
 interface ClientLogo {
   name: string;
@@ -8,7 +9,7 @@ interface ClientLogo {
   bg?: string;
 }
 
-/** Clientes reales en vivo (mismos de la sección Clientes). Al hacer clic se abre su sitio. */
+/** Respaldo si el panel no responde. Lo vigente se maneja en el panel → Vitrina. */
 const LOGOS: ClientLogo[] = [
   { name: 'Yes Computo', url: 'https://yescomputo.com/', logo: 'clients/logos/yescomputo.webp' },
   { name: 'Jolie Chevelure', url: 'https://joliechevelure.com/', logo: 'clients/logos/jolie.webp' },
@@ -34,7 +35,7 @@ const LOGOS: ClientLogo[] = [
     <div class="logos-mask overflow-hidden py-1" role="list" aria-label="Clientes de Savvytrix">
       <div class="logos-track flex w-max gap-4 sm:gap-5">
         @for (rep of [0, 1]; track rep) {
-          @for (c of logos; track c.name) {
+          @for (c of logos(); track c.name) {
             <a [href]="c.url" target="_blank" rel="noopener" role="listitem"
               [attr.aria-hidden]="rep === 1 ? 'true' : null" [attr.tabindex]="rep === 1 ? -1 : null"
               [attr.aria-label]="c.name + ' — abrir su sitio'" [title]="c.name"
@@ -77,5 +78,12 @@ const LOGOS: ClientLogo[] = [
   `,
 })
 export class ClientLogosComponent {
-  readonly logos = LOGOS;
+  private readonly data = inject(SavvyDataService);
+  /** Clientes con aval en el panel (Vitrina → "también en la cinta"); si no hay datos, la lista del código. */
+  readonly logos = computed<ClientLogo[]>(() => {
+    const items = this.data.showcase();
+    if (!items) return LOGOS;
+    const fromPanel = items.filter((i) => i.inLogos && i.logo).map((i) => ({ name: i.name, url: i.url, logo: i.logo, bg: i.logoBg || undefined }));
+    return fromPanel.length ? fromPanel : LOGOS;
+  });
 }
