@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { setPageMeta } from '../../services/page-meta';
 import { HeroComponent } from '../../components/sections/hero/hero.component';
 import { ClientsComponent } from '../../components/sections/clients/clients.component';
 import { ProductsComponent } from '../../components/sections/products/products.component';
@@ -20,4 +21,12 @@ import { CtaStripComponent } from '../../components/shared/cta-strip/cta-strip.c
   imports: [HeroComponent, ProblemsComponent, LinesComponent, NichesComponent, ClientsComponent, ProductsComponent, PlansComponent, MonthlyComponent, OnboardingComponent, AboutComponent, FaqComponent, ContactComponent, FinalCtaComponent, CtaStripComponent],
   templateUrl: './home.component.html',
 })
-export class HomeComponent {}
+export class HomeComponent {
+  constructor() {
+    setPageMeta(
+      '/',
+      'Savvytrix Solutions · Páginas web, tiendas en línea y sistemas para negocios',
+      'Te ponemos en Google, te armamos tu tienda en línea y te damos el sistema para vender y controlar tu negocio. Para tiendas, ferreterías, profesionales y comercios en Colombia.',
+    );
+  }
+}

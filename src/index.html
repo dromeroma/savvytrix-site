@@ -80,14 +80,22 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- ── Structured data: Organization ─────────────────────────────────── -->
+  <!-- ── Datos estructurados: empresa (colombiana, sin oficina abierta al público: atiende en las ciudades
+       de areaServed). Cuando existan redes sociales, van en sameAs (ayuda a Google a no confundirla con
+       otras "Savvytrix"). ─────────────────────────────────────────────────────────────────────────── -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Organization",
+    "@type": [
+      "Organization",
+      "ProfessionalService"
+    ],
     "@id": "https://savvytrix.com/#organization",
     "name": "Savvytrix Solutions",
-    "alternateName": "Savvytrix",
+    "alternateName": [
+      "Savvytrix",
+      "Savvytrix Solutions Colombia"
+    ],
     "url": "https://savvytrix.com",
     "logo": {
       "@type": "ImageObject",
@@ -96,73 +104,8 @@
       "height": 512
     },
     "image": "https://savvytrix.com/og-image.png",
-    "description": "Te ponemos en Google, te armamos tu tienda en línea y te damos el sistema para vender y controlar tu negocio. Para tiendas, ferreterías, profesionales y comercios en Colombia.",
+    "description": "Empresa colombiana que crea páginas web, tiendas en línea y sistemas de ventas para negocios: te ponemos en Google, te armamos tu tienda y te damos el sistema para vender y controlar tu negocio.",
     "slogan": "Más clientes, más ventas y tu negocio en orden",
-    "foundingDate": "2024",
-    "areaServed": [
-      { "@type": "Country", "name": "Colombia" },
-      { "@type": "Country", "name": "México" },
-      { "@type": "Country", "name": "Argentina" },
-      { "@type": "Country", "name": "Chile" },
-      { "@type": "Country", "name": "Perú" },
-      { "@type": "Country", "name": "Ecuador" }
-    ],
-    "knowsAbout": [
-      "Software Development",
-      "Custom Software",
-      "Artificial Intelligence",
-      "Machine Learning",
-      "Mechatronics",
-      "IoT",
-      "Agricultural Technology",
-      "ERP",
-      "CRM",
-      "Point of Sale Systems",
-      "Multi-tenant SaaS",
-      "Web Development",
-      "Mobile Development",
-      "IT Consulting"
-    ],
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Apartadó",
-      "addressRegion": "Antioquia",
-      "addressCountry": "CO"
-    },
-    "contactPoint": [
-      {
-        "@type": "ContactPoint",
-        "telephone": "+57-313-548-7605",
-        "contactType": "sales",
-        "areaServed": ["CO", "MX", "AR", "CL", "PE", "EC"],
-        "availableLanguage": ["Spanish"]
-      }
-    ]
-  }
-  </script>
-
-  <!-- ── Structured data: WebSite ──────────────────────────────────────── -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "@id": "https://savvytrix.com/#website",
-    "url": "https://savvytrix.com",
-    "name": "Savvytrix Solutions",
-    "description": "Te ponemos en Google, te armamos tu tienda en línea y te damos el sistema para vender y controlar tu negocio. Para tiendas, ferreterías, profesionales y comercios en Colombia.",
-    "inLanguage": "es-CO",
-    "publisher": { "@id": "https://savvytrix.com/#organization" }
-  }
-  </script>
-
-  <!-- ── Structured data: ProfessionalService ──────────────────────────── -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "Savvytrix Solutions",
-    "image": "https://savvytrix.com/og-image.png",
-    "url": "https://savvytrix.com",
     "telephone": "+57-313-548-7605",
     "priceRange": "$$",
     "address": {
@@ -171,7 +114,44 @@
       "addressRegion": "Antioquia",
       "addressCountry": "CO"
     },
-    "areaServed": "Latin America",
+    "areaServed": [
+      {
+        "@type": "Country",
+        "name": "Colombia"
+      },
+      {
+        "@type": "City",
+        "name": "Apartadó"
+      },
+      {
+        "@type": "City",
+        "name": "Montería"
+      },
+      {
+        "@type": "City",
+        "name": "Cartagena"
+      },
+      {
+        "@type": "City",
+        "name": "Medellín"
+      },
+      {
+        "@type": "City",
+        "name": "Bogotá"
+      },
+      {
+        "@type": "City",
+        "name": "Cali"
+      }
+    ],
+    "knowsAbout": [
+      "Páginas web para negocios",
+      "Tiendas en línea",
+      "SEO local",
+      "Perfil de Empresa en Google",
+      "Sistemas de punto de venta",
+      "Software a la medida"
+    ],
     "serviceType": [
       "Páginas web para negocios",
       "Tiendas en línea",
@@ -179,7 +159,32 @@
       "Sistema de punto de venta (SavvyPOS)",
       "Tarjetas de presentación digitales",
       "Logo y presentación comercial"
-    ]
+    ],
+    "contactPoint": [
+      {
+        "@type": "ContactPoint",
+        "telephone": "+57-313-548-7605",
+        "contactType": "sales",
+        "areaServed": "CO",
+        "availableLanguage": [
+          "Spanish"
+        ]
+      }
+    ],
+    "sameAs": []
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://savvytrix.com/#website",
+    "url": "https://savvytrix.com",
+    "name": "Savvytrix Solutions",
+    "inLanguage": "es-CO",
+    "publisher": {
+      "@id": "https://savvytrix.com/#organization"
+    }
   }
   </script>
 

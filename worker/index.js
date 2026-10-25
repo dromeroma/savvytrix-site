@@ -6,6 +6,7 @@
  *   El destino sale de la variable/secreto LEAD_TO (dirección VERIFICADA en Email Routing);
  *   el remitente es una dirección del dominio. Si algo falla responde 5xx y el sitio abre
  *   WhatsApp con los mismos datos, así ningún cliente se pierde.
+ * - http y www → 301 a https://savvytrix.com. Direcciones que no existen → 404 real (public/404.html).
  * - Todo lo demás: archivos estáticos prerenderizados (binding ASSETS).
  */
 import { EmailMessage } from 'cloudflare:email';
@@ -17,16 +18,27 @@ const MAX_BODY = 10_000;
 const SAVVY_API = 'https://yescomputo-admin.onrender.com/v1';
 const SAVVY_TENANT = 'savvytrix';
 
+// Dominio oficial: http y www redirigen aquí con 301 (Google ve un solo sitio, no copias).
+const CANONICAL_HOST = 'savvytrix.com';
+// Robots de vista previa (WhatsApp, redes): reciben la página sin redirigir (no siguen redirecciones).
+const PREVIEW_UA = /WhatsApp|facebookexternalhit|Facebot|Twitterbot|LinkedInBot|TelegramBot|Slackbot|Discordbot|Pinterest/i;
+
 export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
+    const local = /^(localhost|127\.0\.0\.1)(:\d+)?$/.test(url.host) || url.host.endsWith('.workers.dev');
+    if (!local && !PREVIEW_UA.test(request.headers.get('user-agent') || '') &&
+        (url.protocol === 'http:' || url.host === 'www.' + CANONICAL_HOST)) {
+      return Response.redirect(`https://${CANONICAL_HOST}${url.pathname}${url.search}`, 301);
+    }
     if (url.pathname === '/api/contacto') {
       if (request.method !== 'POST') return json({ detail: 'Método no permitido' }, 405);
       return handleContact(request, env);
     }
     const res = await env.ASSETS.fetch(request);
     const isHtml = (res.headers.get('content-type') || '').includes('text/html');
-    if (request.method !== 'GET' || !isHtml) return res;
+    // Solo las páginas reales (no la 404) llevan el contenido del panel.
+    if (request.method !== 'GET' || !isHtml || res.status !== 200) return res;
     // Contenido administrable del panel (vitrina, planes, preguntas…). Si tarda o falla, la
     // página sale tal cual (con el contenido escrito en el código): nunca se rompe.
     const data = await panelData(ctx);

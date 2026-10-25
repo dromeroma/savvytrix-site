@@ -1,15 +1,15 @@
 {
   "name": "savvy-landing",
-  "version": "1.7.1",
+  "version": "1.8.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build && node scripts/sitemap.mjs",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:savvy-landing": "node dist/savvy-landing/server/server.mjs",
-    "preview:cf": "ng build && npx --yes wrangler@4 dev",
-    "deploy": "ng build && npx --yes wrangler@4 deploy"
+    "preview:cf": "npm run build && npx --yes wrangler@4 dev",
+    "deploy": "npm run build && npx --yes wrangler@4 deploy"
   },
   "prettier": {
     "printWidth": 100,
