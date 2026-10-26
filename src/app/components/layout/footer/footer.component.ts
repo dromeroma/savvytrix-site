@@ -40,7 +40,7 @@ export class FooterComponent {
   ];
 
   readonly companyLinks = [
-    { label: 'WhatsApp: 313 548 7605', href: WHATSAPP_URL },
+    { label: 'WhatsApp: 310 722 9760', href: WHATSAPP_URL },
   ];
 
   readonly socialLinks = [
