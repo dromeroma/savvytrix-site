@@ -76,6 +76,14 @@
       </div>
     </div>
 
+    <!-- Dónde trabajamos (páginas por ciudad) -->
+    <div class="border-t border-gray-800 py-6 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm">
+      <span class="font-semibold text-white">Dónde trabajamos:</span>
+      @for (city of cities; track city.href) {
+        <a [href]="city.href" class="text-gray-400 hover:text-white transition-colors">{{ city.label }}</a>
+      }
+    </div>
+
     <!-- Bottom -->
     <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
       <p class="text-xs text-gray-400">

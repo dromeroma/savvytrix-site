@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { APP_VERSION } from '../../../version';
+import { CITIES } from '../../../data/cities';
 import { GOOGLE_MAPS_URL, GOOGLE_REVIEW_URL, WHATSAPP_URL } from '../../../config';
 
 @Component({
@@ -12,6 +13,8 @@ import { GOOGLE_MAPS_URL, GOOGLE_REVIEW_URL, WHATSAPP_URL } from '../../../confi
 export class FooterComponent {
   readonly version = APP_VERSION;
   readonly currentYear = new Date().getFullYear();
+  /** Páginas por ciudad (SEO local): enlazadas desde todas las páginas. */
+  readonly cities = CITIES.map((c) => ({ label: c.short, href: `/diseno-web/${c.slug}` }));
 
   readonly productLinks = [
     { label: 'Tiendas de tecnología', href: '/soluciones/tiendas-de-tecnologia' },

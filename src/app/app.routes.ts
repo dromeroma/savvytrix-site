@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { NICHES } from './data/solutions';
+import { CITIES } from './data/cities';
 
 export const routes: Routes = [
   {
@@ -11,6 +12,12 @@ export const routes: Routes = [
     path: `soluciones/${n.slug}`,
     data: { slug: n.slug },
     loadComponent: () => import('./pages/solution/solution.component').then(m => m.SolutionComponent),
+  })),
+  // Una página por ciudad o región (SEO local), también prerenderizada.
+  ...CITIES.map((c) => ({
+    path: `diseno-web/${c.slug}`,
+    data: { slug: c.slug },
+    loadComponent: () => import('./pages/city/city.component').then(m => m.CityComponent),
   })),
   {
     path: 'privacidad',
