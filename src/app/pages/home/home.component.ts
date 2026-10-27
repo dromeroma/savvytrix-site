@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { setPageMeta } from '../../services/page-meta';
 import { HeroComponent } from '../../components/sections/hero/hero.component';
 import { ClientsComponent } from '../../components/sections/clients/clients.component';
+import { GoogleReviewsComponent } from '../../components/sections/google-reviews/google-reviews.component';
 import { ProductsComponent } from '../../components/sections/products/products.component';
 import { LinesComponent } from '../../components/sections/lines/lines.component';
 import { NichesComponent } from '../../components/sections/niches/niches.component';
@@ -18,7 +19,7 @@ import { CtaStripComponent } from '../../components/shared/cta-strip/cta-strip.c
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [HeroComponent, ProblemsComponent, LinesComponent, NichesComponent, ClientsComponent, ProductsComponent, PlansComponent, MonthlyComponent, OnboardingComponent, AboutComponent, FaqComponent, ContactComponent, FinalCtaComponent, CtaStripComponent],
+  imports: [HeroComponent, ProblemsComponent, LinesComponent, NichesComponent, ClientsComponent, ProductsComponent, PlansComponent, MonthlyComponent, OnboardingComponent, AboutComponent, FaqComponent, ContactComponent, FinalCtaComponent, CtaStripComponent, GoogleReviewsComponent],
   templateUrl: './home.component.html',
 })
 export class HomeComponent {

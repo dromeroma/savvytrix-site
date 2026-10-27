@@ -38,9 +38,18 @@ export interface Offering {
   deliverables: string[];
 }
 
+/** Reseñas de Google del panel (solo visibles, 4–5 ★ y con texto; promedio y total reales). */
+export interface GoogleReviews {
+  rating: number | null;
+  count: number | null;
+  url: string;
+  items: { author: string; photo: string; rating: number; text: string; publishedAt: string | null }[];
+}
+
 interface SiteData {
   branding?: { whatsappNumber?: string; whatsappMessage?: string };
   hero?: HeroSlide[];
+  reviews?: GoogleReviews | null;
   offerings?: Offering[];
   content?: {
     faqs?: { q: string; a: string }[];
@@ -75,6 +84,11 @@ export class SavvyDataService {
   readonly plans = computed(() => {
     const o = (this.site()?.offerings ?? []).filter((x) => x.pricing && (x.pricing.price || x.pricing.duration));
     return o.length ? o : null;
+  });
+  /** Reseñas de Google (null = aún no hay; la sección invita a dejar la primera). */
+  readonly reviews = computed(() => {
+    const r = this.site()?.reviews;
+    return r && Array.isArray(r.items) && r.items.length ? r : null;
   });
   readonly whatsappNumber = computed(() => (this.site()?.branding?.whatsappNumber || '').replace(/\D/g, ''));
   readonly whatsappMessage = computed(() => this.site()?.branding?.whatsappMessage || '');

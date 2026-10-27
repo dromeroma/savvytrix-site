@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { APP_VERSION } from '../../../version';
-import { WHATSAPP_URL } from '../../../config';
+import { GOOGLE_MAPS_URL, GOOGLE_REVIEW_URL, WHATSAPP_URL } from '../../../config';
 
 @Component({
   selector: 'app-footer',
@@ -41,6 +41,8 @@ export class FooterComponent {
 
   readonly companyLinks = [
     { label: 'WhatsApp: 310 722 9760', href: WHATSAPP_URL },
+    { label: 'Encuéntranos en Google Maps', href: GOOGLE_MAPS_URL },
+    { label: '★ Califícanos en Google', href: GOOGLE_REVIEW_URL },
   ];
 
   readonly socialLinks = [
